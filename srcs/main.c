@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 10:46:13 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/15 16:08:30 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/15 16:35:50 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int main()
 	void	*mlx;
 	void	*mlx_win;
 	t_data	img;
+	t_bresendata	cord;
 	
 	//ft_printf("Potencia: %d\n", power(2, 4));
 	mlx = mlx_init();
@@ -26,7 +27,8 @@ int main()
 //	x = 1;
 //	my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
 	//bren_alg(&img, 0, 0, 60, 40);
-	bresen_alg(&img, X, Y, XK, YK);
+	cord = get_bresendata(X, Y, XK, YK);
+	bresen_alg(&img, cord);
 	//bren_alg(&img, 0, 0, 40, 60);
 	//bren_alg(&img, 40, 60, 0, 0);
 	// bren_alg(&img, 40, 0, 0, 60);
