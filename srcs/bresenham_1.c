@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bresenham_1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppaulo-d < ppaulo-d@student.42sp.org.br    +#+  +:+       +#+        */
+/*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:00:00 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/15 03:14:33 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/15 13:48:26 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,38 +20,43 @@ int	mod_x(int x)
 		return (x);
 }
 
-void	bren_alg(t_data *img, int x1, int y1, int xk, int yk)
+t_bresendata	get_bresendata(int x1, int y1, int xk, int yk)
 {
-	int dx;
-	int dy;
+	t_bresendata cord;
 
-	dx = xk - x1;
-	dy = yk - y1;
-	if (dx > dy)
+	cord.x1 = x1;
+	cord.xk = xk;
+	cord.y1 = y1;
+	cord.yk = yk;
+	cord.dx = xk - x1;
+	cord.dy = yk - y1;
+	return (cord);
+}
+
+void	bresen_alg(t_data *img, int x1, int y1, int xk, int yk)
+{
+	t_bresendata	cord;
+
+	cord = get_bresendata(x1, y1, xk, yk);
+	if (mod_x(xk - x1) > mod_x(yk - y1))
 	{
-		if ((dx > 0 && dy < 0) || (dx < 0 && dy > 0))
-		{
-			if (mod_x(dy) > mod_x(dx))
-				draw_line_4(img, -xk, yk, -x1, y1);
-			else
-				draw_line_3(img, x1, -y1, xk, -yk);
-		}
-		else if (dx < 0 && dy < 0)
-			draw_line_2(img, xk, yk, x1, y1);
+		if ((xk - x1 > 0 && yk - y1 < 0) || (xk - x1 < 0 && yk - y1 > 0))
+			draw_line_3(img, cord);
+		// else if (xk - x1 < 0 && yk - y1 > 0)
+		// 	draw_line_3(img, cord);
+		else if (xk - x1 < 0 && yk - y1 < 0)
+			draw_line_1(img, xk, yk, x1, y1);
 		else
 			draw_line_1(img, x1, y1, xk, yk);
 	}
-	else if (dx < dy)
+	else
 	{
-		if ((dx > 0 && dy < 0) || (dx < 0 && dy > 0))
-		{
-			if (mod_x(dx) > mod_x (dy))
-				draw_line_3(img, xk, -yk, x1, -y1);
-			else
-				draw_line_4(img, -x1, y1, -xk, yk);
-		}
-		else if (dx < 0 && dy < 0)
-			draw_line_1(img, xk, yk, x1, y1);
+		if (xk - x1 < 0 && yk - y1 > 0)
+			draw_line_4(img, -x1, y1, -xk, yk);
+		else if (xk - x1 > 0 && yk - y1 < 0)
+			draw_line_4(img, -xk, yk, -x1, y1);
+		else if (xk - x1 < 0 && yk - y1 < 0)
+			draw_line_2(img, xk, yk, x1, y1);
 		else
 			draw_line_2(img, x1, y1, xk, yk);
 	}
