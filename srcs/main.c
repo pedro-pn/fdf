@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/15 10:46:13 by ppaulo-d          #+#    #+#             */
+/*   Updated: 2022/06/15 16:08:30 by ppaulo-d         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 int main()
@@ -14,13 +26,13 @@ int main()
 //	x = 1;
 //	my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
 	//bren_alg(&img, 0, 0, 60, 40);
-	//bren_alg(&img, 60, 40, 0, 0);
+	bresen_alg(&img, X, Y, XK, YK);
 	//bren_alg(&img, 0, 0, 40, 60);
 	//bren_alg(&img, 40, 60, 0, 0);
 	// bren_alg(&img, 40, 0, 0, 60);
 	// bren_alg(&img, 0, 60, 40, 0);
 	// bren_alg(&img, 0, 40, 60, 0);
-	 bren_alg(&img, 60, 0, 0, 40);
+	// bren_alg(&img, 60, 0, 0, 40);
 	// while (x < 50)
 	// {
 	// 	y = 5 * x + 58;
@@ -28,6 +40,6 @@ int main()
 	// 	x++;
 	// }
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	mlx_loop(mlx);
+	//mlx_loop(mlx);
 }
 

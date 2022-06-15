@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:00:00 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/15 13:48:26 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/15 16:08:10 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,18 @@ void	bresen_alg(t_data *img, int x1, int y1, int xk, int yk)
 		if ((xk - x1 > 0 && yk - y1 < 0) || (xk - x1 < 0 && yk - y1 > 0))
 			draw_line_3(img, cord);
 		// else if (xk - x1 < 0 && yk - y1 > 0)
-		// 	draw_line_3(img, cord);
-		else if (xk - x1 < 0 && yk - y1 < 0)
-			draw_line_1(img, xk, yk, x1, y1);
+		// 	draw_line_3(img, xk, -yk, x1, -y1);
+		// else if (xk - x1 < 0 && yk - y1 < 0)
+		// 	draw_line_1(img, xk, yk, x1, y1);
 		else
-			draw_line_1(img, x1, y1, xk, yk);
+			draw_line_1(img, cord);
 	}
 	else
 	{
-		if (xk - x1 < 0 && yk - y1 > 0)
-			draw_line_4(img, -x1, y1, -xk, yk);
-		else if (xk - x1 > 0 && yk - y1 < 0)
-			draw_line_4(img, -xk, yk, -x1, y1);
+		if ((xk - x1 > 0 && yk - y1 < 0) || (xk - x1 < 0 && yk - y1 > 0))
+			draw_line_4(img, cord);
+		// else if (xk - x1 < 0 && yk - y1 > 0)
+		// 	draw_line_4(img, cord);
 		else if (xk - x1 < 0 && yk - y1 < 0)
 			draw_line_2(img, xk, yk, x1, y1);
 		else
