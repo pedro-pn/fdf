@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 18:52:23 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/15 22:09:42 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/16 00:08:34 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	**fill_map(char *file_name, int lines)
 
 	if (lines > 0)
 		map = malloc(sizeof(*map) * (lines + 1));
-	if (!map)
+	else
 		return (NULL);
 	map_index = 0;
 	fd = open(file_name, O_RDONLY);
@@ -69,7 +69,6 @@ int	**get_matrix(char **map, int num_lines)
 {
 	int		**matrix;
 	char	**line_splitted;
-	char	*line;
 	int		map_index;
 	int		matrix_row;
 
