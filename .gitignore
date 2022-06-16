@@ -3,3 +3,6 @@ vgcore*
 *.out
 libft/*.a
 libft/objs/
+caso*
+run.sh
+*.fdf

@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/15 16:48:59 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/15 22:10:26 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FDF_H
 # include "libft.h"
 # include "mlx.h"
+# include <fcntl.h>
 
 # ifndef X
 #  define X 0
@@ -58,5 +59,5 @@ void			draw_line_4(t_data *img, t_bresendata cord);
 void			bresen_alg(t_data *img, t_bresendata cord);
 void			my_mlx_pixel_put(t_data *data, int x, int y, int color);
 t_bresendata	get_bresendata(int x1, int y1, int xk, int yk);
-
+int				**get_matrix(char **map, int num_lines);
 #endif

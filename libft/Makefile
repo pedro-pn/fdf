@@ -16,14 +16,14 @@ OBJS_PATH = objs
 SRCS = ${addprefix ${SRCS_PATH}/, ${SOURCES}}
 OBJS = ${addprefix ${OBJS_PATH}/, ${SOURCES:.c=.o}}
 CC = cc
-FLAGS = -Werror -Wall -Wextra
+FLAGS = -g -Werror -Wall -Wextra
 NAME = libft.a
 
 all: ${NAME}
 
 ${OBJS_PATH}/%.o:	${SRCS_PATH}/%.c
 					@ mkdir -p objs
-					@ ${CC} ${FLAG} -I include/ -c -o $@ $<
+					@ ${CC} ${FLAGS} -I include/ -c -o $@ $<
 
 ${NAME}: ${OBJS}
 		@ ar -rcs ${NAME} ${OBJS}
