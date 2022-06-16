@@ -1,4 +1,5 @@
-SOURCES = main.c bresenham_1.c bresenham_2.c my_mlx_pixel_put.c read_file.c
+SOURCES = main.c bresenham_1.c bresenham_2.c my_mlx_pixel_put.c read_file.c \
+			events.c
 NAME = fdf.out
 LIBFT = ./libft/libft.a
 INCLUDES = include
@@ -8,13 +9,14 @@ SRCS = ${addprefix ${SRCS_PATH}/, ${SOURCES}}
 OBJS = ${addprefix ${OBJS_PATH}/, ${SOURCES:.c=.o}}
 FLAGS = -Wall -Werror -Wextra -g
 CC = gcc
+#-D X=${X_AMB} -D Y=${Y_AMB} -D XK=${XK_AMB} -D YK=${YK_AMB}
 
 all:	${NAME}
 
 ${OBJS_PATH}/%.o:	${SRCS_PATH}/%.c
 					@ mkdir -p objs
-					@ $(CC) ${FLAGS} -I./libft/include -I${INCLUDES} -I/usr/include -Imlx_linux -O3\
-					-D X=${X_AMB} -D Y=${Y_AMB} -D XK=${XK_AMB} -D YK=${YK_AMB} -c $< -o $@
+					@ $(CC) ${FLAGS} -I./libft/include -I./${INCLUDES} -I/usr/include -Imlx_linux -O3\
+					-c $< -o $@
 
 $(NAME): $(LIBFT) $(OBJS)
 	 @ $(CC) $(OBJS) ${LIBFT} -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)

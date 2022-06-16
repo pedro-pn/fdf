@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:00:00 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/15 16:45:33 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/16 20:31:05 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_bresendata	get_bresendata(int x1, int y1, int xk, int yk)
 	return (cord);
 }
 
-void	bresen_alg(t_data *img, t_bresendata cord)
+void	bresen_alg(t_img *img, t_bresendata cord)
 {
 	if (mod_x(cord.dx) > mod_x(cord.dy))
 	{

@@ -6,13 +6,13 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:13:23 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/15 16:45:59 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/16 20:31:20 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	draw_line_1(t_data *img, t_bresendata cord)
+void	draw_line_1(t_img *img, t_bresendata cord)
 {
 	int	p;
 
@@ -34,7 +34,7 @@ void	draw_line_1(t_data *img, t_bresendata cord)
 	}
 }
 
-void	draw_line_2(t_data *img, t_bresendata cord)
+void	draw_line_2(t_img *img, t_bresendata cord)
 {
 	int	p;
 
@@ -58,7 +58,7 @@ void	draw_line_2(t_data *img, t_bresendata cord)
 	}
 }
 
-void	draw_line_3(t_data *img, t_bresendata cord)
+void	draw_line_3(t_img *img, t_bresendata cord)
 {
 	int	p;
 
@@ -82,7 +82,7 @@ void	draw_line_3(t_data *img, t_bresendata cord)
 	}
 }
 
-void	draw_line_4(t_data *img, t_bresendata cord)
+void	draw_line_4(t_img *img, t_bresendata cord)
 {
 	int	p;
 
