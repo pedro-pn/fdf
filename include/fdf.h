@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/16 20:41:05 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/16 22:36:48 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include "mlx.h"
 # include <fcntl.h>
 
+# define SCREEN_WIDTH 800
+# define SCREEN_LENGTH 600
+# define SIZE_LINE 20
 # ifndef X
 #  define X 0
 # endif
@@ -51,6 +54,14 @@ typedef struct s_bresendata
 	int	dy;
 }			t_bresendata;
 
+typedef struct s_fdf
+{
+	int		num_columns;
+	int		num_rows;
+	int		**matrix;
+	char	**map;
+}			t_fdf;
+
 typedef struct s_win_data
 {
 	void	*mlx;
@@ -70,5 +81,8 @@ int				**get_matrix(char **map, int num_lines);
 int				count_lines(char *file_name);
 char			**fill_map(char *file_name, int lines);
 int				exit_win(int key, void *param);
+int				get_rows(char **splitted_line);
+int				clean_matrix(void **matrix);
+void			plot_lines(t_win_data mlx_data, t_fdf fdf);
 
 #endif
