@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 10:46:13 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/16 22:59:37 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/18 01:26:17 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@ int main()
 	// void	*mlx;
 	// void	*mlx_win;
 	t_win_data	mlx_data;
-	int i;
-	int j;
-	int x;
-	int y;
-	int xk;
+	// int i;
+	// int j;
+	// int x;
+	// int y;
+	// int xk;
+	char	*file_name = "./maps/42.fdf";
 	// int **matrix;
 	// char	**map;
 	t_fdf	fdf;
@@ -30,11 +31,11 @@ int main()
 //	int yk;
 //	exit_func = &(exit_win)(int key, void *param)));
 	//t_img	img;
-	t_bresendata	cord;
+	//t_bresendata	cord;
 	
 
-	fdf.num_rows = count_lines("./maps/42.fdf");
-	fdf.map = fill_map("./maps/42.fdf", fdf.num_rows);
+	fdf.num_rows = count_lines(file_name);
+	fdf.map = fill_map(file_name, fdf.num_rows);
 	fdf.matrix = get_matrix(fdf.map, fdf.num_rows);
 	fdf.num_columns = 19;
 	// ft_printf("ROWS: %d\n COLUMNS: %d\n", fdf.num_rows, fdf.num_columns);
@@ -46,13 +47,13 @@ int main()
 //	x = 1;
 //	my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
 	//bren_alg(&img, 0, 0, 60, 40);
-	i = 0;
-	j = 0;
-	ft_printf("%d\n", fdf.matrix[5][j]);
-	int meio_x;
-	int meio_y;
-	meio_y = (600/2) - (fdf.num_rows/2) * 20;
-	meio_x = (800 / 2) - (18 / 2) * 20;
+	// i = 0;
+	// j = 0;
+	//ft_printf("%d\n", fdf.matrix[5][j]);
+	// int meio_x;
+	// int meio_y;
+	// meio_y = (600/2) - (fdf.num_rows/2) * 20;
+	// meio_x = (800 / 2) - (18 / 2) * 20;
 	// while (j < fdf.num_rows)
 	// {
 	// 	i = 0;
@@ -70,27 +71,30 @@ int main()
 	// 	}
 	// 	j++;
 	// }
-	plot_lines(mlx_data, fdf);
+	//plot_lines(mlx_data, fdf);
+	//plot_rows(mlx_data, fdf);
+	plot_lines_iso(mlx_data, fdf);
+	plot_rows_iso(mlx_data, fdf);
 	ft_printf("xxxxxxxxxxxxxxxxxxxxx");
-	i = 0;
-	j = 0;
-	while (j < 19)
-	{
-		i = 0;
-		y = meio_x + (20*j);
-		while (i < fdf.num_rows - 1)
-		{
-			x = (i*20) + meio_y;
-			xk = x + 20;
-			if (fdf.matrix[i][j] == fdf.matrix[i+1][j])
-			{
-				cord = get_bresendata(y, x, y, xk);
-				bresen_alg(&(mlx_data.img), cord);	
-			}
-			i++;
-		}
-		j++;
-	}
+	// i = 0;
+	// j = 0;
+	// while (j < 18)
+	// {
+	// 	i = 0;
+	// 	y = meio_x + (2*j);
+	// 	while (i < fdf.num_rows - 1)
+	// 	{
+	// 		x = (i*2) + meio_y;
+	// 		xk = x + 2;
+	// 		if (fdf.matrix[i][j] == fdf.matrix[i+1][j])
+	// 		{
+	// 			cord = get_bresendata(y, x, y, xk);
+	// 			bresen_alg(&(mlx_data.img), cord);	
+	// 		}
+	// 		i++;
+	// 	}
+	// 	j++;
+	// }
 	//cord = get_bresendata(X, Y, XK, YK); // pega os (x, y) (x, y) pra formatar
 	//bresen_alg(&img, cord); // plota formatado
 	// while (x < 50)

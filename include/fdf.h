@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/16 22:36:48 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/18 01:25:57 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 # include "libft.h"
 # include "mlx.h"
 # include <fcntl.h>
+# include <math.h>
 
-# define SCREEN_WIDTH 800
-# define SCREEN_LENGTH 600
-# define SIZE_LINE 20
+# define SCREEN_WIDTH 1024
+# define SCREEN_LENGTH 768
+# define SIZE_LINE 50
 # ifndef X
 #  define X 0
 # endif
@@ -84,5 +85,8 @@ int				exit_win(int key, void *param);
 int				get_rows(char **splitted_line);
 int				clean_matrix(void **matrix);
 void			plot_lines(t_win_data mlx_data, t_fdf fdf);
+void			plot_rows(t_win_data mlx_data, t_fdf fdf);
+void	plot_lines_iso(t_win_data mlx_data, t_fdf fdf);
+void	plot_rows_iso(t_win_data mlx_data, t_fdf fdf);
 
 #endif
