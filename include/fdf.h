@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/18 01:25:57 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/18 10:39:26 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 # define SCREEN_WIDTH 1024
 # define SCREEN_LENGTH 768
-# define SIZE_LINE 50
+# define SIZE_LINE 60
 # ifndef X
 #  define X 0
 # endif
