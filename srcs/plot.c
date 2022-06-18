@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 21:50:22 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/18 10:53:28 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/18 11:19:08 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,17 +132,17 @@ void	plot_rows_iso(t_win_data mlx_data, t_fdf fdf)
 
 	row = 0;
 	column = 0;
-	center_y = (SCREEN_LENGTH / 2) - (fdf.num_rows / 2) * (SIZE_LINE/4); // colocar dentro da struct fdf
-	center_x = (SCREEN_WIDTH / 2) - ((fdf.num_columns - 1) / 2) * (SIZE_LINE);
-	while (column < fdf.num_columns - 1)
+	center_y = (SCREEN_LENGTH / 2) - (fdf.num_rows / 2) * (SIZE_LINE/2); // c/olocar dentro da struct fdf
+	center_x = (SCREEN_WIDTH / 2) - ((fdf.num_columns - 1) / 2) * (SIZE_LINE/8);
+	while (column < fdf.num_columns)
 	{
 		row = 0;
-		y = center_y + (row * SIZE_LINE / 2);
-		x = center_x - (row * SIZE_LINE / 2);
-		while (row < fdf.num_rows)
+		y = center_y + (column * SIZE_LINE / 4);
+		x = center_x + (column * SIZE_LINE / 4);
+		while (row < fdf.num_rows - 1)
 		{
 			xk = x - (SIZE_LINE / 4);
-			yk = y + (SIZE_LINE / 2);
+			yk = y + (SIZE_LINE / 4) + fdf.matrix[row][column] - fdf.matrix[row + 1][column];
 		//	if (fdf.matrix[row][column] == fdf.matrix[row][column + 1])
 		//	{
 				cord = get_bresendata(x, y, xk, yk); // esssas duas funções podem ser chamadas

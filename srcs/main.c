@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 10:46:13 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/18 01:26:17 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/18 11:25:06 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main()
 	// int x;
 	// int y;
 	// int xk;
-	char	*file_name = "./maps/42.fdf";
+	char	*file_name = "./maps/pyramide.fdf";
 	// int **matrix;
 	// char	**map;
 	t_fdf	fdf;
