@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/18 11:25:34 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/18 14:18:25 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include <fcntl.h>
 # include <math.h>
 
-# define SCREEN_WIDTH 1024
+# define SCREEN_WIDTH 1366
 # define SCREEN_LENGTH 768
-# define SIZE_LINE 40
+# define SIZE_LINE 36
 # ifndef X
 #  define X 0
 # endif
@@ -61,6 +61,8 @@ typedef struct s_fdf
 	int		num_rows;
 	int		**matrix;
 	char	**map;
+	int		start_x;
+	int		start_y;
 }			t_fdf;
 
 typedef struct s_win_data
@@ -88,5 +90,5 @@ void			plot_lines(t_win_data mlx_data, t_fdf fdf);
 void			plot_rows(t_win_data mlx_data, t_fdf fdf);
 void	plot_lines_iso(t_win_data mlx_data, t_fdf fdf);
 void	plot_rows_iso(t_win_data mlx_data, t_fdf fdf);
-
+void	get_start_pixels(t_fdf *fdf);
 #endif

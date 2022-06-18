@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 10:46:13 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/18 11:25:06 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/18 15:05:35 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main()
 	// int x;
 	// int y;
 	// int xk;
-	char	*file_name = "./maps/pyramide.fdf";
+	char	*file_name = "./maps/elem2.fdf";
 	// int **matrix;
 	// char	**map;
 	t_fdf	fdf;
@@ -38,6 +38,9 @@ int main()
 	fdf.map = fill_map(file_name, fdf.num_rows);
 	fdf.matrix = get_matrix(fdf.map, fdf.num_rows);
 	fdf.num_columns = 19;
+	get_start_pixels(&fdf);
+	ft_printf("rows ou columns: %d\n", fdf.start_x);
+//	return 0;
 	// ft_printf("ROWS: %d\n COLUMNS: %d\n", fdf.num_rows, fdf.num_columns);
 	// return 0;
 	mlx_data.mlx = mlx_init();

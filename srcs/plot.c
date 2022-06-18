@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 21:50:22 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/18 11:19:08 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/18 15:05:13 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,17 +94,17 @@ void	plot_lines_iso(t_win_data mlx_data, t_fdf fdf)
 
 	row = 0;
 	column = 0;
-	center_y = (SCREEN_LENGTH / 2) - (fdf.num_rows / 2) * (SIZE_LINE/2); // colocar dentro da struct fdf
-	center_x = (SCREEN_WIDTH / 2) - ((fdf.num_columns - 1) / 2) * (SIZE_LINE/8);
+	//center_y = (SCREEN_LENGTH / 2) - (fdf.num_rows / 2) * (SIZE_LINE/4); // colocar dentro da struct fdf
+//	center_x = (SCREEN_WIDTH / 2) + ((fdf.num_columns - 1) / 2) * (SIZE_LINE/8);
 	while (row < fdf.num_rows)
 	{
 		column = 0;
-		y = center_y + (row * SIZE_LINE / 4);
-		x = center_x - (row * SIZE_LINE / 4);
+		y = fdf.start_y + (row * SIZE_LINE / 4);
+		x = fdf.start_x - (row * SIZE_LINE / 4);
 		while (column < fdf.num_columns - 1)
 		{
 			xk = x + (SIZE_LINE / 4);
-			yk = y + (SIZE_LINE / 4) + fdf.matrix[row][column] - fdf.matrix[row][column + 1];
+			yk = y + (SIZE_LINE / 4) + (fdf.matrix[row][column] - fdf.matrix[row][column + 1]);
 		//	if (fdf.matrix[row][column] == fdf.matrix[row][column + 1])
 		//	{
 				cord = get_bresendata(x, y, xk, yk); // esssas duas funções podem ser chamadas
@@ -132,13 +132,13 @@ void	plot_rows_iso(t_win_data mlx_data, t_fdf fdf)
 
 	row = 0;
 	column = 0;
-	center_y = (SCREEN_LENGTH / 2) - (fdf.num_rows / 2) * (SIZE_LINE/2); // c/olocar dentro da struct fdf
-	center_x = (SCREEN_WIDTH / 2) - ((fdf.num_columns - 1) / 2) * (SIZE_LINE/8);
+	//center_y = (SCREEN_LENGTH / 2) - (fdf.num_rows / 2) * (SIZE_LINE/4); // c/olocar dentro da struct fdf
+//	center_x = (SCREEN_WIDTH / 2) + ((fdf.num_columns - 1) / 2) * (SIZE_LINE/8);
 	while (column < fdf.num_columns)
 	{
 		row = 0;
-		y = center_y + (column * SIZE_LINE / 4);
-		x = center_x + (column * SIZE_LINE / 4);
+		y = fdf.start_y + (column * SIZE_LINE / 4);
+		x = fdf.start_x + (column * SIZE_LINE / 4);
 		while (row < fdf.num_rows - 1)
 		{
 			xk = x - (SIZE_LINE / 4);
@@ -154,4 +154,14 @@ void	plot_rows_iso(t_win_data mlx_data, t_fdf fdf)
 		}
 		column++;
 	}
+}
+
+void	get_start_pixels(t_fdf *fdf)
+{
+
+	(*fdf).start_x = (SCREEN_WIDTH / 2) - (((*fdf).num_columns * SIZE_LINE / 8)
+		 - ((*fdf).num_rows * SIZE_LINE / 8));
+	(*fdf).start_y = (SCREEN_LENGTH / 2) - (((*fdf).num_columns * SIZE_LINE / 8)
+		 + ((*fdf).num_rows * SIZE_LINE / 8));
+
 }

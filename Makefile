@@ -31,5 +31,7 @@ fclean: clean
 		make fclean -C ./libft
 		rm -f ${NAME}
 
+re: clean all
+
 norma:
 		@ norminette ${SRCS} ${INCLUDES}
