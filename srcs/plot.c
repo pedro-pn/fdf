@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 21:50:22 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/20 18:54:47 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/20 19:04:53 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,8 @@ void	plot_lines_iso(t_win_data mlx_data, t_fdf fdf)
 			y = first_y;
 			x = first_x;
 		}
-			y = fdf.start_y + ((row * round(SIZE_LINE * tan(0.463646716))));
-			x = fdf.start_x - (row * SIZE_LINE);
+			// y = fdf.start_y + ((row * round(SIZE_LINE * tan(0.463646716))));
+			// x = fdf.start_x - (row * SIZE_LINE);
 		while (column < fdf.num_columns - 1)
 		{
 			xk = x + (SIZE_LINE);
