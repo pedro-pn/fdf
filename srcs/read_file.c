@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 18:52:23 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/16 00:08:34 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/20 13:04:42 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int	get_rows(char **splitted_line)
 	{
 		index++;
 	}
+	ft_printf("Num rows: %d\n", index);
 	return (index);
 }
 

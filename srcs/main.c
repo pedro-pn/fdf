@@ -6,12 +6,27 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 10:46:13 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/18 15:05:35 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/20 18:52:15 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include "keys.h"
+
+int	get_rows_matrix(char **map)
+{
+	int i;
+	char	**splitted;
+	
+	i = 0;
+	splitted = ft_split(map[0], ' ');
+	while (splitted[i])
+	{
+		i++;
+	}
+	clean_matrix(splitted);
+	return (i);
+}
 
 int main()
 {
@@ -23,7 +38,7 @@ int main()
 	// int x;
 	// int y;
 	// int xk;
-	char	*file_name = "./maps/elem2.fdf";
+	char	*file_name = "./maps/t2.fdf";
 	// int **matrix;
 	// char	**map;
 	t_fdf	fdf;
@@ -37,10 +52,10 @@ int main()
 	fdf.num_rows = count_lines(file_name);
 	fdf.map = fill_map(file_name, fdf.num_rows);
 	fdf.matrix = get_matrix(fdf.map, fdf.num_rows);
-	fdf.num_columns = 19;
+	fdf.num_columns = get_rows_matrix(fdf.map);
 	get_start_pixels(&fdf);
-	ft_printf("rows ou columns: %d\n", fdf.start_x);
-//	return 0;
+	ft_printf("rows ou columns: %d\n", fdf.num_columns);
+	//return 0;
 	// ft_printf("ROWS: %d\n COLUMNS: %d\n", fdf.num_rows, fdf.num_columns);
 	// return 0;
 	mlx_data.mlx = mlx_init();
@@ -77,7 +92,7 @@ int main()
 	//plot_lines(mlx_data, fdf);
 	//plot_rows(mlx_data, fdf);
 	plot_lines_iso(mlx_data, fdf);
-	plot_rows_iso(mlx_data, fdf);
+//	plot_rows_iso(mlx_data, fdf);
 	ft_printf("xxxxxxxxxxxxxxxxxxxxx");
 	// i = 0;
 	// j = 0;

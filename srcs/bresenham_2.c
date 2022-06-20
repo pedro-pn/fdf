@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:13:23 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/16 20:31:20 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/20 13:03:50 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	draw_line_1(t_img *img, t_bresendata cord)
 	while (cord.x1 <= cord.xk)
 	{
 		my_mlx_pixel_put(img, cord.x1, cord.y1, 0X00FF0000);
-		ft_printf("%d\t%d\n", cord.x1, cord.y1);
 		cord.x1++;
 		if (p < 0)
 			p = p + 2 * cord.dy;
@@ -46,7 +45,6 @@ void	draw_line_2(t_img *img, t_bresendata cord)
 	while (cord.x1 <= cord.xk)
 	{
 		my_mlx_pixel_put(img, cord.y1, cord.x1, 0X00FF0000);
-		ft_printf("%d\t%d\n", cord.y1, cord.x1);
 		cord.x1++;
 		if (p < 0)
 			p = p + 2 * cord.dy;
@@ -70,7 +68,6 @@ void	draw_line_3(t_img *img, t_bresendata cord)
 	while (cord.x1 <= cord.xk)
 	{
 		my_mlx_pixel_put(img, cord.x1, -cord.y1, 0X00FF0000);
-		ft_printf("%d\t%d\n", cord.x1, -cord.y1);
 		cord.x1++;
 		if (p < 0)
 			p = p + 2 * cord.dy;
@@ -94,7 +91,6 @@ void	draw_line_4(t_img *img, t_bresendata cord)
 	while (cord.x1 <= cord.xk)
 	{
 		my_mlx_pixel_put(img, -cord.y1, cord.x1, 0X00FF0000);
-		ft_printf("%d\t%d\n", -cord.y1, cord.x1);
 		cord.x1++;
 		if (p < 0)
 			p = p + 2 * cord.dy;
