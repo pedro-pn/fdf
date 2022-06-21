@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 10:46:13 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/21 14:10:45 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/21 15:51:37 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int main(int argc, char *argv[])
 {
 	t_win_data	mlx_data;
-	t_fdf	fdf;
+	t_fdf		fdf;
 	
 	check_args(argc, argv);
 	fdf_init(&fdf, argv[1]);

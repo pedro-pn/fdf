@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/21 13:50:15 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/21 16:23:41 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 # include <math.h>
 # include <stdio.h>
 
-# define SCREEN_WIDTH 1366
-# define SCREEN_LENGTH 800
-# define SIZE_LINE 2
+# define SCREEN_WIDTH 1024
+# define SCREEN_LENGTH 768
+
 # ifndef X
 #  define X 0
 # endif
@@ -64,7 +64,7 @@ typedef struct s_iso
 	int	y;
 	int	xk;
 	int	yk;
-	int first_x;
+	int	first_x;
 	int	first_y;
 }			t_iso;
 
@@ -76,6 +76,7 @@ typedef struct s_fdf
 	char	**map;
 	int		start_x;
 	int		start_y;
+	int		tile_size;
 }			t_fdf;
 
 typedef struct s_win_data
@@ -99,15 +100,16 @@ char			**fill_map(char *file_name, int lines);
 int				exit_win(int key, void *param);
 int				get_rows(char **splitted_line);
 int				clean_matrix(void **matrix);
-void	plot_iso(t_win_data mlx_data, t_fdf fdf);
-void	plot_rows_iso(t_win_data mlx_data, t_fdf fdf);
-void	get_start_pixels(t_fdf *fdf);
-void	plot_columns_iso(t_win_data mlx_data, t_fdf fdf, t_iso *iso);
-int	get_columns_matrix(char **map);
+void			plot_iso(t_win_data mlx_data, t_fdf fdf);
+void			plot_rows_iso(t_win_data mlx_data, t_fdf fdf);
+void			get_start_pixels(t_fdf *fdf);
+void			plot_columns_iso(t_win_data mlx_data, t_fdf fdf, t_iso *iso);
+int				get_columns_matrix(char **map);
+void			check_args(int argc, char *argv[]);
+void			error(char *error_str);
+void			check_format(char *file_name);
+void			fdf_init(t_fdf *fdf, char *file_name);
+void			mlx_start(t_win_data *mlx_data);
+int				get_tile_size(int row, int column);
 
-void	check_args(int argc, char *argv[]);
-void	error(char *error_str);
-void	check_format(char *file_name);
-void	fdf_init(t_fdf *fdf, char *file_name);
-void	mlx_start(t_win_data *mlx_data);
 #endif

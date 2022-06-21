@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 18:52:23 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/21 13:30:42 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/21 16:14:49 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,15 +96,13 @@ int	**get_matrix(char **map, int num_lines)
 
 int	get_columns_matrix(char **map)
 {
-	int i;
+	int		i;
 	char	**splitted;
-	
+
 	i = 0;
 	splitted = ft_split(map[0], ' ');
 	while (splitted[i])
-	{
 		i++;
-	}
-	clean_matrix(splitted);
+	clean_matrix((void **) splitted);
 	return (i);
 }

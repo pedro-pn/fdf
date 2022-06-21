@@ -7,7 +7,7 @@ SRCS_PATH = srcs
 OBJS_PATH = objs
 SRCS = ${addprefix ${SRCS_PATH}/, ${SOURCES}}
 OBJS = ${addprefix ${OBJS_PATH}/, ${SOURCES:.c=.o}}
-FLAGS = -Wall -Wextra -g
+FLAGS = -Wall -Werror -Wextra -g
 CC = gcc
 #-D X=${X_AMB} -D Y=${Y_AMB} -D XK=${XK_AMB} -D YK=${YK_AMB}
 
