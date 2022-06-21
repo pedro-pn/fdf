@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/20 18:41:53 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/20 21:39:50 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,18 @@ typedef struct s_bresendata
 	int	dy;
 }			t_bresendata;
 
+typedef struct s_iso
+{
+	int	row;
+	int	column;
+	int	x;
+	int	y;
+	int	xk;
+	int	yk;
+	int first_x;
+	int	first_y;
+}			t_iso;
+
 typedef struct s_fdf
 {
 	int		num_columns;
@@ -86,9 +98,8 @@ char			**fill_map(char *file_name, int lines);
 int				exit_win(int key, void *param);
 int				get_rows(char **splitted_line);
 int				clean_matrix(void **matrix);
-void			plot_lines(t_win_data mlx_data, t_fdf fdf);
-void			plot_rows(t_win_data mlx_data, t_fdf fdf);
-void	plot_lines_iso(t_win_data mlx_data, t_fdf fdf);
+void	plot_iso(t_win_data mlx_data, t_fdf fdf);
 void	plot_rows_iso(t_win_data mlx_data, t_fdf fdf);
 void	get_start_pixels(t_fdf *fdf);
+void	plot_columns_iso(t_win_data mlx_data, t_fdf fdf, t_iso *iso);
 #endif

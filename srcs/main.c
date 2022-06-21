@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 10:46:13 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/20 18:52:15 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/20 21:12:06 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int main()
 	// }
 	//plot_lines(mlx_data, fdf);
 	//plot_rows(mlx_data, fdf);
-	plot_lines_iso(mlx_data, fdf);
+	plot_iso(mlx_data, fdf);
 //	plot_rows_iso(mlx_data, fdf);
 	ft_printf("xxxxxxxxxxxxxxxxxxxxx");
 	// i = 0;
