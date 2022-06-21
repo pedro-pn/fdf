@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 21:50:22 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/21 16:20:37 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/21 19:41:36 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	draw_iso(t_win_data mlx_data, t_fdf fdf, t_iso *iso)
 		+ (fdf.matrix[iso->row][iso->column]
 			- fdf.matrix[iso->row][iso->column + 1]);
 	cord = get_bresendata(iso->x, iso->y, iso->xk, iso->yk);
+	mlx_data.img.color = get_color(*iso, fdf.map);
 	bresen_alg(&(mlx_data.img), cord);
 	plot_columns_iso(mlx_data, fdf, iso);
 	iso->column++;

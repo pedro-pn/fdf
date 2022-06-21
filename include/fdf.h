@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/21 16:23:41 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/21 19:04:39 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_img
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	int		color;
 }				t_img;
 
 typedef struct s_bresendata
@@ -111,5 +112,7 @@ void			check_format(char *file_name);
 void			fdf_init(t_fdf *fdf, char *file_name);
 void			mlx_start(t_win_data *mlx_data);
 int				get_tile_size(int row, int column);
+int				htoi(char *hptr);
+int				get_color(t_iso iso, char **map);
 
 #endif
