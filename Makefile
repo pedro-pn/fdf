@@ -1,5 +1,5 @@
 SOURCES = main.c bresenham_1.c bresenham_2.c my_mlx_pixel_put.c read_file.c \
-			events.c clean.c plot.c
+			events.c clean.c plot.c error.c open.c
 NAME = fdf.out
 LIBFT = ./libft/libft.a
 INCLUDES = include

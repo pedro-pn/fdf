@@ -6,3 +6,4 @@ libft/objs/
 caso*
 run.sh
 *.fdf
+.vscode*

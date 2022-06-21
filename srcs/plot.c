@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 21:50:22 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/20 21:18:41 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/21 10:41:45 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,7 @@ void	plot_iso(t_win_data mlx_data, t_fdf fdf)
 			iso.x = iso.first_x;
 		}
 		while (iso.column < fdf.num_columns - 1)
-		{
 			draw_iso(mlx_data, fdf, &iso);
-		}
 		iso.row++;
 	}
 }

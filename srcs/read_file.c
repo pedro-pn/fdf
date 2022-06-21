@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 18:52:23 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/20 13:04:42 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/21 13:30:42 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	**fill_map(char *file_name, int lines)
 	if (lines > 0)
 		map = malloc(sizeof(*map) * (lines + 1));
 	else
+		return (NULL);
+	if (!map)
 		return (NULL);
 	map_index = 0;
 	fd = open(file_name, O_RDONLY);
@@ -62,7 +64,6 @@ int	get_rows(char **splitted_line)
 	{
 		index++;
 	}
-	ft_printf("Num rows: %d\n", index);
 	return (index);
 }
 
@@ -93,33 +94,17 @@ int	**get_matrix(char **map, int num_lines)
 	return (matrix);
 }
 
-// MAIN PARA TESTES
-// int main()
-// {
-//     int n;
-//     char    **map;
-//     int     **matrix;
-//     int     index_matrix;
-
-//     index_matrix = 0;
-//     n = count_lines("42.fdf");
-//    // ft_printf("n: %i\n", n);
-//     map = fill_map("42.fdf", n);
-//     matrix = get_matrix(map, n);
-//     ft_printf("char map: %c\t", map[0][56]);
-//     ft_printf("matrix number: %d", matrix[6][7]);
-//     while (n >= 0)
-//     {
-//         free(map[n]);
-//        // ft_printf("n2: %d\n", n);
-//         n--;
-//     }
-//     free(map);
-//     while (matrix[index_matrix])
-//     {
-//         free(matrix[index_matrix]);
-//         index_matrix++;
-//     }
-//     free(matrix);
-//     return 0;
-// }
+int	get_columns_matrix(char **map)
+{
+	int i;
+	char	**splitted;
+	
+	i = 0;
+	splitted = ft_split(map[0], ' ');
+	while (splitted[i])
+	{
+		i++;
+	}
+	clean_matrix(splitted);
+	return (i);
+}
