@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/21 19:04:39 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/21 21:40:48 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ typedef struct s_fdf
 	int		num_columns;
 	int		num_rows;
 	int		**matrix;
+	int		**matrix_color;
 	char	**map;
 	int		start_x;
 	int		start_y;
@@ -95,7 +96,7 @@ void			draw_line_4(t_img *img, t_bresendata cord);
 void			bresen_alg(t_img *img, t_bresendata cord);
 void			my_mlx_pixel_put(t_img *data, int x, int y, int color);
 t_bresendata	get_bresendata(int x1, int y1, int xk, int yk);
-int				**get_matrix(char **map, int num_lines);
+void			get_matrix(t_fdf *fdf);
 int				count_lines(char *file_name);
 char			**fill_map(char *file_name, int lines);
 int				exit_win(int key, void *param);
@@ -113,6 +114,6 @@ void			fdf_init(t_fdf *fdf, char *file_name);
 void			mlx_start(t_win_data *mlx_data);
 int				get_tile_size(int row, int column);
 int				htoi(char *hptr);
-int				get_color(t_iso iso, char **map);
+void			get_matrix_color(t_fdf *fdf, char **row_splt, int row);
 
 #endif

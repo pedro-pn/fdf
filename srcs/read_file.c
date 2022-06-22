@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 18:52:23 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/21 16:14:49 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/21 21:08:07 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,31 +67,30 @@ int	get_rows(char **splitted_line)
 	return (index);
 }
 
-int	**get_matrix(char **map, int num_lines)
+void	get_matrix(t_fdf *fdf)
 {
-	int		**matrix;
-	char	**line_splitted;
-	int		map_index;
-	int		matrix_row;
+	char	**row_splitted;
+	int		row;
+	int		column;
 
-	matrix = malloc(sizeof(*matrix) * (num_lines + 1));
-	matrix[num_lines] = NULL;
-	map_index = 0;
-	while (map_index < num_lines)
+	fdf->matrix = malloc(sizeof(int *) * (fdf->num_rows + 1));
+	fdf->matrix[fdf->num_rows] = NULL;
+	row = 0;
+	while (row < fdf->num_rows)
 	{
-		matrix_row = 0;
-		line_splitted = ft_split(map[map_index], ' ');
-		matrix[map_index] = malloc(sizeof(**matrix) * get_rows(line_splitted));
-		while (line_splitted[matrix_row])
+		column = 0;
+		row_splitted = ft_split(fdf->map[row], ' ');
+		get_matrix_color(fdf, row_splitted, row);
+		fdf->matrix[row] = malloc(sizeof(int) * get_rows(row_splitted));
+		while (row_splitted[column])
 		{
-			matrix[map_index][matrix_row] = ft_atoi(line_splitted[matrix_row]);
-			free(line_splitted[matrix_row]);
-			matrix_row++;
+			fdf->matrix[row][column] = ft_atoi(row_splitted[column]);
+			free(row_splitted[column]);
+			column++;
 		}
-		free(line_splitted);
-		map_index++;
+		free(row_splitted);
+		row++;
 	}
-	return (matrix);
 }
 
 int	get_columns_matrix(char **map)

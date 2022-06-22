@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:23:32 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/21 16:22:58 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/21 21:15:44 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,10 @@ void	fdf_init(t_fdf *fdf, char *file_name)
 {
 	fdf->num_rows = count_lines(file_name);
 	fdf->map = fill_map(file_name, fdf->num_rows);
-	fdf->matrix = get_matrix(fdf->map, fdf->num_rows);
+	fdf->matrix_color = malloc(sizeof(int *) * (fdf->num_rows + 1));
+	fdf->matrix_color[fdf->num_rows] = NULL;
 	fdf->num_columns = get_columns_matrix(fdf->map);
+	get_matrix(fdf);
 	fdf->tile_size = get_tile_size(fdf->num_rows, fdf->num_columns);
 	get_start_pixels(fdf);
 }

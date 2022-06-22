@@ -6,24 +6,26 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:18:53 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/21 19:29:35 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/21 22:01:47 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	get_color(t_iso iso, char **map)
+void	get_matrix_color(t_fdf *fdf, char **row_splt, int row)
 {
-	char	**splitted_row;
+	int		column;
 	char	*hexaptr;
-	int		color;
 
-	splitted_row = ft_split(map[iso.row], ' ');
-	hexaptr = ft_strchr(splitted_row[iso.column], ',');
-	if (hexaptr)
-		color = htoi(hexaptr++);
-	else
-		color = 0X00FFFFFF;
-	clean_matrix((void **) splitted_row);
-	return (color);
+	column = 0;
+	fdf->matrix_color[row] = malloc(sizeof(int) * fdf->num_columns);
+	while (row_splt[column])
+	{
+		hexaptr = ft_strchr(row_splt[column], ',');
+		if (hexaptr)
+			(fdf->matrix_color)[row][column] = htoi(hexaptr++);
+		else
+			(fdf->matrix_color)[row][column] = 0X00FFFFFF;
+		column++;
+	}
 }
