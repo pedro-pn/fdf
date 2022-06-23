@@ -6,13 +6,14 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/22 22:19:42 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/23 11:56:29 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 # include "libft.h"
+# include "keys.h"
 # include "mlx.h"
 # include <fcntl.h>
 # include <math.h>
@@ -86,6 +87,7 @@ typedef struct s_win_data
 	void	*mlx;
 	void	*mlx_win;
 	t_img	img;
+	t_fdf	fdf;
 }				t_win_data;
 
 int				mod_x(int x);
@@ -118,5 +120,7 @@ void			get_matrix_color(t_fdf *fdf, char **row_splt, int row);
 int				key_handle(int key, void *mlx_data);
 void			clean_program(t_win_data *mlx_data, t_fdf *fdf);
 void			create_img(t_win_data *mlx_data);
+void			zoom(int key, t_win_data *mlx_data);
+void			move(int key, t_win_data *mlx_data);
 
 #endif
