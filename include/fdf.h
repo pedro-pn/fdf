@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/23 11:56:29 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/23 14:09:14 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ typedef struct s_fdf
 	int		start_x;
 	int		start_y;
 	int		tile_size;
+	int		z_factor;
 }			t_fdf;
 
 typedef struct s_win_data
@@ -122,5 +123,6 @@ void			clean_program(t_win_data *mlx_data, t_fdf *fdf);
 void			create_img(t_win_data *mlx_data);
 void			zoom(int key, t_win_data *mlx_data);
 void			move(int key, t_win_data *mlx_data);
+void			change_z(int key, t_win_data *mlx_data);
 
 #endif

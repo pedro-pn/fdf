@@ -1,6 +1,6 @@
 SOURCES = main.c bresenham_1.c bresenham_2.c image.c read_file.c \
 			events.c clean.c plot.c error.c open.c color.c utils.c
-NAME = fdf.out
+NAME = fdf
 LIBFT = ./libft/libft.a
 INCLUDES = include
 SRCS_PATH = srcs

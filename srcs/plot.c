@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 21:50:22 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/21 21:43:14 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/23 13:46:26 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	draw_iso(t_win_data mlx_data, t_fdf fdf, t_iso *iso)
 	iso->xk = iso->x + (fdf.tile_size);
 	iso->yk = iso->y + (round(fdf.tile_size * tan(0.463646716)))
 		+ (fdf.matrix[iso->row][iso->column]
-			- fdf.matrix[iso->row][iso->column + 1]);
+			- fdf.matrix[iso->row][iso->column + 1]) * fdf.z_factor;
 	cord = get_bresendata(iso->x, iso->y, iso->xk, iso->yk);
 	mlx_data.img.color = fdf.matrix_color[iso->row][iso->column];
 	bresen_alg(&(mlx_data.img), cord);
@@ -81,7 +81,7 @@ void	plot_columns_iso(t_win_data mlx_data, t_fdf fdf, t_iso *iso)
 		nxk = iso->x - (fdf.tile_size);
 		nyk = iso->y + (round(fdf.tile_size * tan(0.463646716)))
 			+ (fdf.matrix[iso->row][iso->column]
-				- fdf.matrix[iso->row + 1][iso->column]);
+				- fdf.matrix[iso->row + 1][iso->column]) * fdf.z_factor;
 		bresen_alg(&(mlx_data.img), get_bresendata(iso->x, iso->y, nxk, nyk));
 		if (iso->column == 0)
 		{
@@ -91,7 +91,8 @@ void	plot_columns_iso(t_win_data mlx_data, t_fdf fdf, t_iso *iso)
 		column++;
 		nxk = iso->xk - (fdf.tile_size);
 		nyk = iso->yk + (round(fdf.tile_size * tan(0.463646716)))
-			+ (fdf.matrix[iso->row][column] - fdf.matrix[iso->row + 1][column]);
+			+ (fdf.matrix[iso->row][column] - fdf.matrix[iso->row + 1][column])
+			* fdf.z_factor;
 		bresen_alg(&(mlx_data.img), get_bresendata(iso->xk, iso->yk, nxk, nyk));
 	}
 }
