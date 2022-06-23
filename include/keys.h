@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 17:58:39 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/16 17:59:14 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/22 20:42:33 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 # define KEYS_H
 
 # define ESC 65307
+# define EXIT_BUTTON 959400720
 
 #endif

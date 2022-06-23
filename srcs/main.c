@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 10:46:13 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/21 21:14:10 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/22 22:26:24 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,13 @@ int main(int argc, char *argv[])
 	fdf_init(&fdf, argv[1]);
 	mlx_start(&mlx_data);
 	plot_iso(mlx_data, fdf);
-
 	mlx_put_image_to_window(mlx_data.mlx, mlx_data.mlx_win,
 			mlx_data.img.img, 0, 0);
-	mlx_key_hook(mlx_data.mlx_win, &exit_win, &mlx_data);
+	mlx_hook(mlx_data.mlx_win, 17, 0, &exit_win, &mlx_data);
+	mlx_key_hook(mlx_data.mlx_win, &key_handle, &mlx_data);
 	mlx_loop(mlx_data.mlx);
+	mlx_destroy_window(mlx_data.mlx, mlx_data.mlx_win);
 	mlx_destroy_display(mlx_data.mlx);
-	free(mlx_data.mlx);
-	clean_matrix((void **) fdf.matrix);
-	clean_matrix((void **) fdf.map);
-	clean_matrix((void **) fdf.matrix_color);
+	clean_program(&mlx_data, &fdf);
 }
 
