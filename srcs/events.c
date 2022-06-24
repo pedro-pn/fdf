@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:00:15 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/23 14:05:13 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/23 15:25:47 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,11 @@ int	key_handle(int key, void *mlx_data)
 	//ft_printf("key: %d\n", key);
 	if (key == K_ESC)
 		exit_win(mlx_data);
-	if (key == K_PLUS)
+	if (key == K_PLUS || key == K_MINUS)
 		zoom(key, (t_win_data *)mlx_data);
-	if (key == K_MINUS)
-		zoom(key, (t_win_data *)mlx_data);
-	if (key == K_UP)
+	if (key == K_UP || key == K_DOWN || key == K_LEFT || key == K_RIGHT)
 		move(key, (t_win_data *)mlx_data);
-	if (key == K_DOWN)
-		move(key, (t_win_data *)mlx_data);
-	if (key == K_LEFT)
-		move(key, (t_win_data *)mlx_data);
-	if (key == K_RIGHT)
-		move(key, (t_win_data *)mlx_data);
-	if (key == K_COMMA)
-		change_z(key, (t_win_data *)mlx_data);
-	if (key == K_DOT)
+	if (key == K_COMMA || key == K_DOT)
 		change_z(key, (t_win_data *)mlx_data);
 	return (0);
 }

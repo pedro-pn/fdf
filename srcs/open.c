@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:23:32 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/23 14:03:05 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/23 16:10:21 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	mlx_start(t_win_data *mlx_data)
 {
 	mlx_data->mlx = mlx_init();
 	mlx_data->mlx_win = mlx_new_window(mlx_data->mlx, SCREEN_WIDTH,
-			SCREEN_LENGTH, "fdf");
+			SCREEN_HEIGHT, "fdf");
 	create_img(mlx_data);
 }
 
@@ -38,7 +38,7 @@ int	get_tile_size(int row, int column)
 	int	tile_size;
 	int	total_area;
 
-	total_area = SCREEN_WIDTH * SCREEN_LENGTH / 4;
+	total_area = SCREEN_WIDTH * SCREEN_HEIGHT / 4;
 	tile_size = round(sqrt(total_area / (tan(0.463646716)
 					* pow(row + column - 2, 2))));
 	if (tile_size < 2)

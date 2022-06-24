@@ -33,5 +33,7 @@ fclean: clean
 
 re: clean all
 
+.PHONY: all clean fclean re
+
 norma:
 		@ norminette ${SRCS} ${INCLUDES}

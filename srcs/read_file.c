@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 18:52:23 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/21 21:08:07 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/23 16:18:10 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,6 @@ int	count_lines(char *file_name)
 	return (num_lines);
 }
 
-int	get_rows(char **splitted_line)
-{
-	int	index;
-
-	index = 0;
-	while (splitted_line[index])
-	{
-		index++;
-	}
-	return (index);
-}
-
 void	get_matrix(t_fdf *fdf)
 {
 	char	**row_splitted;
@@ -81,7 +69,7 @@ void	get_matrix(t_fdf *fdf)
 		column = 0;
 		row_splitted = ft_split(fdf->map[row], ' ');
 		get_matrix_color(fdf, row_splitted, row);
-		fdf->matrix[row] = malloc(sizeof(int) * get_rows(row_splitted));
+		fdf->matrix[row] = malloc(sizeof(int) * fdf->num_columns);
 		while (row_splitted[column])
 		{
 			fdf->matrix[row][column] = ft_atoi(row_splitted[column]);
