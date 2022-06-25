@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:13:23 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/21 18:17:15 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/25 19:54:00 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ void	draw_line_1(t_img *img, t_bresendata cord)
 	if (cord.dx < 0 && cord.dy < 0)
 		cord = get_bresendata(cord.xk, cord.yk, cord.x1, cord.y1);
 	p = 2 * cord.dy - cord.dx;
+	color(cord, img);
+//	ft_printf("draw 1\n");
 	while (cord.x1 <= cord.xk)
 	{
-		my_mlx_pixel_put(img, cord.x1, cord.y1, img->color);
+		my_mlx_pixel_put(img, cord.x1, cord.y1, round(img->color));
 		cord.x1++;
 		if (p < 0)
 			p = p + 2 * cord.dy;
@@ -42,9 +44,11 @@ void	draw_line_2(t_img *img, t_bresendata cord)
 	else
 		cord = get_bresendata(cord.y1, cord.x1, cord.yk, cord.xk);
 	p = 2 * cord.dy - cord.dx;
+	color(cord, img);
+//	ft_printf("draw 2\n");
 	while (cord.x1 <= cord.xk)
 	{
-		my_mlx_pixel_put(img, cord.y1, cord.x1, img->color);
+		my_mlx_pixel_put(img, cord.y1, cord.x1, round(img->color));
 		cord.x1++;
 		if (p < 0)
 			p = p + 2 * cord.dy;
@@ -65,9 +69,11 @@ void	draw_line_3(t_img *img, t_bresendata cord)
 	else
 		cord = get_bresendata(cord.x1, -cord.y1, cord.xk, -cord.yk);
 	p = 2 * cord.dy - cord.dx;
+	color(cord, img);
+//	ft_printf("draw 2\n");
 	while (cord.x1 <= cord.xk)
 	{
-		my_mlx_pixel_put(img, cord.x1, -cord.y1, img->color);
+		my_mlx_pixel_put(img, cord.x1, -cord.y1, round(img->color));
 		cord.x1++;
 		if (p < 0)
 			p = p + 2 * cord.dy;
@@ -88,9 +94,11 @@ void	draw_line_4(t_img *img, t_bresendata cord)
 	else
 		cord = get_bresendata(cord.y1, -cord.x1, cord.yk, -cord.xk);
 	p = 2 * cord.dy - cord.dx;
+	color(cord, img);
+//	ft_printf("draw 4\n");
 	while (cord.x1 <= cord.xk)
 	{
-		my_mlx_pixel_put(img, -cord.y1, cord.x1, img->color);
+		my_mlx_pixel_put(img, -cord.y1, cord.x1, round(img->color));
 		cord.x1++;
 		if (p < 0)
 			p = p + 2 * cord.dy;
