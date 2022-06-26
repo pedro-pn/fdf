@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/25 15:06:13 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/26 12:37:50 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,10 @@ typedef struct s_img
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-	double		color;
+	int		color;
 	int		color_end;
 	double		color_factor;
+	double	distance;
 	int		flag;
 }				t_img;
 
@@ -43,6 +44,7 @@ typedef struct s_bresendata
 	int	yk;
 	int	dx;
 	int	dy;
+	int	x1_f;
 }			t_bresendata;
 
 typedef struct s_iso
@@ -119,5 +121,9 @@ void			clean_matrix(void **matrix);
 void			clean_program(t_win_data *mlx_data, t_fdf *fdf);
 // Utils
 int				htoi(char *hptr);
+//color
+double	get_percentage(t_bresendata cord, t_img img, int current);
+double	get_distance(t_bresendata *cord);
+int	get_color(t_img img, t_bresendata cord);
 
 #endif

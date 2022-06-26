@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:16:36 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/25 22:28:14 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/26 12:27:17 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 		dst = data -> addr
 			+ (y * data -> line_length + x * (data->bits_per_pixel / 8));
 		*(unsigned int *)dst = color;
-		if (data->color != data->color_end)
-			data->color += data->color_factor;
+		// if (data->color != data->color_end)
+		// 	data->color += data->color_factor;
 	}
 }
