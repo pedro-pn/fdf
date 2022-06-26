@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:18:53 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/25 16:34:04 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/25 22:33:44 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,7 @@ void	color(t_bresendata cord, t_img *img)
 	int distance;
 	double	color_gap;
 	
-	distance = cord.xk - cord.x1 + 1;
-	if (distance < 0)
-		distance *= -1;
+	distance = cord.xk - cord.x1;
 	color_gap = img->color_end - img->color;
 	img->color_factor = (color_gap) / (distance);
 }
