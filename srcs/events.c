@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:00:15 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/23 15:25:47 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/27 12:34:36 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	exit_win(void *mlx_data)
 
 int	key_handle(int key, void *mlx_data)
 {
-	//ft_printf("key: %d\n", key);
 	if (key == K_ESC)
 		exit_win(mlx_data);
 	if (key == K_PLUS || key == K_MINUS)

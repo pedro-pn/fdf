@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 21:50:22 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/25 19:54:16 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/27 12:25:14 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,7 @@ void	draw_iso(t_win_data mlx_data, t_fdf fdf, t_iso *iso)
 		+ (fdf.matrix[iso->row][iso->column]
 			- fdf.matrix[iso->row][iso->column + 1]) * fdf.z_factor;
 	cord = get_bresendata(iso->x, iso->y, iso->xk, iso->yk);
-//	mlx_data.img.color = fdf.matrix_color[iso->row][iso->column];
-	get_row_color(fdf, *iso, &(mlx_data.img));
-//	ft_printf("Color_i: %d\t color_f %d\n", (int) mlx_data.img.color, mlx_data.img.color_end);
-	mlx_data.img.flag = 0;
+	get_row_color(fdf, *iso, &(mlx_data.img.color));
 	bresen_alg(&(mlx_data.img), cord);
 	plot_columns_iso(mlx_data, fdf, iso);
 	iso->column++;
@@ -76,13 +73,10 @@ void	plot_columns_iso(t_win_data mlx_data, t_fdf fdf, t_iso *iso)
 {
 	int	nxk;
 	int	nyk;
-	int	column;
 
-	column = iso->column;
-	mlx_data.img.flag = 1;
 	if (iso->row < fdf.num_rows - 1)
 	{
-		get_column_color(fdf, *iso, &mlx_data.img);
+		get_column_color(fdf, *iso, &mlx_data.img.color);
 		nxk = iso->x - (fdf.tile_size);
 		nyk = iso->y + (round(fdf.tile_size * tan(0.463646716)))
 			+ (fdf.matrix[iso->row][iso->column]
@@ -93,12 +87,11 @@ void	plot_columns_iso(t_win_data mlx_data, t_fdf fdf, t_iso *iso)
 			iso->first_y = nyk;
 			iso->first_x = nxk;
 		}
-		column++;
-		get_column_color(fdf, *iso, &mlx_data.img);
+		get_column_color(fdf, *iso, &mlx_data.img.color);
 		nxk = iso->xk - (fdf.tile_size);
 		nyk = iso->yk + (round(fdf.tile_size * tan(0.463646716)))
-			+ (fdf.matrix[iso->row][column] - fdf.matrix[iso->row + 1][column])
-			* fdf.z_factor;
+			+ (fdf.matrix[iso->row][iso->column + 1]
+				- fdf.matrix[iso->row + 1][iso->column + 1]) * fdf.z_factor;
 		bresen_alg(&(mlx_data.img), get_bresendata(iso->xk, iso->yk, nxk, nyk));
 	}
 }
