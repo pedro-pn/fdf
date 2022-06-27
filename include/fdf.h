@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/27 12:31:50 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/27 16:53:07 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,13 @@
 
 # define SCREEN_WIDTH 1024
 # define SCREEN_HEIGHT 768
+# define ISO_ANG 0.463646716
 
 typedef struct s_color
 {
-	int		start_point;
 	int		color;
 	int		color_end;
+	int		start_point;
 	double	distance;
 }			t_color;
 
@@ -48,7 +49,6 @@ typedef struct s_bresendata
 	int	yk;
 	int	dx;
 	int	dy;
-	int	x1_f;
 }			t_bresendata;
 
 typedef struct s_iso
@@ -121,6 +121,7 @@ void			clean_matrix(void **matrix);
 void			clean_program(t_win_data *mlx_data, t_fdf *fdf);
 // Utils
 int				htoi(char *hptr);
+int				mod(int n);
 //color
 void			get_matrix_color(t_fdf *fdf, char **row_splt, int row);
 void			get_row_color(t_fdf fdf, t_iso iso, t_color *color);

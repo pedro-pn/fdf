@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 19:00:11 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/21 19:01:00 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/27 16:30:54 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,11 @@ int	htoi(char *hptr)
 		counter++;
 	}
 	return (htoi);
+}
+
+int	mod(int n)
+{
+	if (n < 0)
+		return (-n);
+	return (n);
 }
