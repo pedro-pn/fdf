@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:16:36 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/28 15:40:02 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/28 20:23:06 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	reset_position(t_win_data *mlx_data)
 	plot_iso(*mlx_data, mlx_data->fdf);
 	mlx_put_image_to_window(mlx_data->mlx, mlx_data->mlx_win,
 		mlx_data->img.img, 200, 0);
+//	print_menu(mlx_data);
 }
 
 void	zoom(int key, t_win_data *mlx_data)
@@ -42,6 +43,7 @@ void	zoom(int key, t_win_data *mlx_data)
 	plot_iso(*mlx_data, mlx_data->fdf);
 	mlx_put_image_to_window(mlx_data->mlx, mlx_data->mlx_win,
 		mlx_data->img.img, 200, 0);
+//	print_menu(mlx_data);
 }
 
 void	move(int key, t_win_data *mlx_data)
@@ -60,6 +62,7 @@ void	move(int key, t_win_data *mlx_data)
 	plot_iso(*mlx_data, mlx_data->fdf);
 	mlx_put_image_to_window(mlx_data->mlx, mlx_data->mlx_win,
 		mlx_data->img.img, 200, 0);
+//	print_menu(mlx_data);
 }
 
 void	change_z(int key, t_win_data *mlx_data)
