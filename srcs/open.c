@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:23:32 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/28 13:17:21 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/28 13:43:10 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	mlx_start(t_win_data *mlx_data)
 	mlx_data->mlx = mlx_init();
 	mlx_data->mlx_win = mlx_new_window(mlx_data->mlx, SCREEN_WIDTH,
 			SCREEN_HEIGHT, "fdf");
+	print_menu(mlx_data);
 	create_img(mlx_data);
 }
 

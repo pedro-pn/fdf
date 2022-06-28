@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:18:53 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/28 13:07:21 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/28 14:23:46 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,24 @@ void	paint_image(t_img *img)
 		while (x <= SCREEN_WIDTH)
 		{
 			my_mlx_pixel_put(img, x, y, SCREEN_COLOR);
+			x++;
+		}
+		y++;
+	}
+}
+
+void	paint_menu(t_win_data *mlx_data)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (y <= SCREEN_HEIGHT)
+	{
+		x = 0;
+		while (x <= 200)
+		{
+			mlx_pixel_put(mlx_data->mlx, mlx_data->mlx_win, x, y, MENU_COLOR);
 			x++;
 		}
 		y++;

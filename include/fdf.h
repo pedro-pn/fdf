@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/28 13:11:56 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/28 14:21:51 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
 
 # define SCREEN_WIDTH 1024
 # define SCREEN_HEIGHT 600
-# define SCREEN_COLOR 0X001C1522
+# define SCREEN_COLOR 0x001d2528 //0X001C1522
+# define MENU_COLOR 0x00232c31//0X0006B6B6B
 # define ISO_ANG 0.463646716
 
 typedef struct s_color
@@ -132,5 +133,8 @@ void			get_row_color(t_fdf fdf, t_iso iso, t_color *color);
 void			get_column_color(t_fdf fdf, t_iso iso, t_color *color);
 void			get_distance(t_bresendata cord, t_color *color);
 int				get_color(t_color color, t_bresendata cord);
+// Menu
+void			print_menu(t_win_data *mlx_data);
+void			paint_menu(t_win_data *mlx_data);
 
 #endif
