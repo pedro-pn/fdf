@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 13:41:17 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/28 20:32:46 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/28 20:47:00 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	print_menu(t_win_data *mlx_data)
 
 void	create_menu(t_win_data *mlx_data)
 {
-	mlx_data->menu.img = mlx_new_image(mlx_data->mlx, 200,
+	mlx_data->menu.img = mlx_new_image(mlx_data->mlx, MENU_WIDTH,
 			SCREEN_HEIGHT);
 	mlx_data->menu.addr = mlx_get_data_addr(mlx_data->menu.img,
 			&(mlx_data->menu.bits_per_pixel), &(mlx_data->menu.line_length),

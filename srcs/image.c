@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:16:36 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/28 20:23:06 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/28 20:46:01 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ void	reset_position(t_win_data *mlx_data)
 	fdf_default(&mlx_data->fdf);
 	plot_iso(*mlx_data, mlx_data->fdf);
 	mlx_put_image_to_window(mlx_data->mlx, mlx_data->mlx_win,
-		mlx_data->img.img, 200, 0);
-//	print_menu(mlx_data);
+		mlx_data->img.img, MENU_WIDTH, 0);
 }
 
 void	zoom(int key, t_win_data *mlx_data)
@@ -42,8 +41,7 @@ void	zoom(int key, t_win_data *mlx_data)
 	get_start_pixels(&(mlx_data->fdf));
 	plot_iso(*mlx_data, mlx_data->fdf);
 	mlx_put_image_to_window(mlx_data->mlx, mlx_data->mlx_win,
-		mlx_data->img.img, 200, 0);
-//	print_menu(mlx_data);
+		mlx_data->img.img, MENU_WIDTH, 0);
 }
 
 void	move(int key, t_win_data *mlx_data)
@@ -61,8 +59,7 @@ void	move(int key, t_win_data *mlx_data)
 	get_start_pixels(&mlx_data->fdf);
 	plot_iso(*mlx_data, mlx_data->fdf);
 	mlx_put_image_to_window(mlx_data->mlx, mlx_data->mlx_win,
-		mlx_data->img.img, 200, 0);
-//	print_menu(mlx_data);
+		mlx_data->img.img, MENU_WIDTH, 0);
 }
 
 void	change_z(int key, t_win_data *mlx_data)
@@ -79,14 +76,14 @@ void	change_z(int key, t_win_data *mlx_data)
 	mlx_data->fdf.z_factor += increment;
 	plot_iso(*mlx_data, mlx_data->fdf);
 	mlx_put_image_to_window(mlx_data->mlx, mlx_data->mlx_win,
-		mlx_data->img.img, 200, 0);
+		mlx_data->img.img, MENU_WIDTH, 0);
 }
 
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 {
 	char	*dst;
 
-	if (x < SCREEN_WIDTH && x >= 0 && y <= SCREEN_HEIGHT && y >= 0)
+	if (x < SCREEN_WIDTH - MENU_WIDTH && x >= 0 && y <= SCREEN_HEIGHT && y >= 0)
 	{
 		dst = data -> addr
 			+ (y * data -> line_length + x * (data->bits_per_pixel / 8));

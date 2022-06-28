@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:23:32 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/28 20:33:29 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/28 20:46:15 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,8 @@ void	mlx_start(t_win_data *mlx_data)
 	mlx_data->mlx = mlx_init();
 	mlx_data->mlx_win = mlx_new_window(mlx_data->mlx, SCREEN_WIDTH,
 			SCREEN_HEIGHT, "FdF");
-//	print_menu(mlx_data);
 	create_img(mlx_data);
-	//create_menu(mlx_data);
+	create_menu(mlx_data);
 }
 
 int	get_tile_size(int row, int column)
@@ -57,7 +56,7 @@ int	get_tile_size(int row, int column)
 
 void	create_img(t_win_data *mlx_data)
 {
-	mlx_data->img.img = mlx_new_image(mlx_data->mlx, SCREEN_WIDTH - 200,
+	mlx_data->img.img = mlx_new_image(mlx_data->mlx, SCREEN_WIDTH - MENU_WIDTH,
 			SCREEN_HEIGHT);
 	mlx_data->img.addr = mlx_get_data_addr(mlx_data->img.img,
 			&(mlx_data->img.bits_per_pixel), &(mlx_data->img.line_length),

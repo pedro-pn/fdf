@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:00:15 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/28 15:34:27 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/28 20:49:19 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	exit_win(void *mlx_data)
 		((t_win_data *)mlx_data)->mlx_win);
 	mlx_destroy_image(((t_win_data *)mlx_data)->mlx,
 		((t_win_data *)mlx_data)->img.img);
+	mlx_destroy_image(((t_win_data *)mlx_data)->mlx,
+		((t_win_data *)mlx_data)->menu.img);
 	mlx_loop_end(((t_win_data *)mlx_data)->mlx);
 	return (0);
 }
