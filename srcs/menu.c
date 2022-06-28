@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 13:41:17 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/28 14:23:52 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/28 15:45:24 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,5 @@ void	print_menu(t_win_data *mlx_data)
 	mlx_string_put(mlx, win, 20, 240, 0X00FFFFFF, "Z-axis");
 	mlx_string_put(mlx, win, 40, 260, 0X00FFFFFF, "Increase: '>'");
 	mlx_string_put(mlx, win, 40, 275, 0X00FFFFFF, "Decrease: '<'");
+	mlx_string_put(mlx, win, 20, 305, 0X00FFFFFF, "Reset: 'R'");
 }

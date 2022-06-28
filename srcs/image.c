@@ -6,20 +6,20 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:16:36 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/28 13:30:27 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/28 15:40:02 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	create_img(t_win_data *mlx_data)
+void	reset_position(t_win_data *mlx_data)
 {
-	mlx_data->img.img = mlx_new_image(mlx_data->mlx, SCREEN_WIDTH,
-			SCREEN_HEIGHT);
-	mlx_data->img.addr = mlx_get_data_addr(mlx_data->img.img,
-			&(mlx_data->img.bits_per_pixel), &(mlx_data->img.line_length),
-			&(mlx_data->img.endian));
-	paint_image(&mlx_data->img);
+	mlx_destroy_image(mlx_data->mlx, mlx_data->img.img);
+	create_img(mlx_data);
+	fdf_default(&mlx_data->fdf);
+	plot_iso(*mlx_data, mlx_data->fdf);
+	mlx_put_image_to_window(mlx_data->mlx, mlx_data->mlx_win,
+		mlx_data->img.img, 200, 0);
 }
 
 void	zoom(int key, t_win_data *mlx_data)

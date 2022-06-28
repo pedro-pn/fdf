@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:00:15 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/27 12:34:36 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/28 15:34:27 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ int	key_handle(int key, void *mlx_data)
 		move(key, (t_win_data *)mlx_data);
 	if (key == K_COMMA || key == K_DOT)
 		change_z(key, (t_win_data *)mlx_data);
+	if (key == K_R)
+		reset_position((t_win_data *)mlx_data);
 	return (0);
 }

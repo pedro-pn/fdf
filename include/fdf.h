@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/28 14:21:51 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/28 15:38:55 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ void			get_matrix(t_fdf *fdf);
 // Create window and image
 void			mlx_start(t_win_data *mlx_data);
 void			fdf_init(t_fdf *fdf, char *file_name);
+void			fdf_default(t_fdf *fdf);
 void			create_img(t_win_data *mlx_data);
 void			my_mlx_pixel_put(t_img *data, int x, int y, int color);
 // Error handling functions
@@ -119,6 +120,7 @@ void			plot_columns_iso(t_win_data mlx_data, t_fdf fdf, t_iso *iso);
 void			zoom(int key, t_win_data *mlx_data);
 void			move(int key, t_win_data *mlx_data);
 void			change_z(int key, t_win_data *mlx_data);
+void			reset_position(t_win_data *mlx_data);
 // Clean memory and exit program
 int				exit_win(void *mlx_data);
 void			clean_matrix(void **matrix);

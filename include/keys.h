@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 17:58:39 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/23 16:28:21 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/28 15:33:19 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define EXIT_BUTTON 959400720
 # define K_COMMA 44
 # define K_DOT 46
+# define K_R 114
 
 int	key_handle(int key, void *mlx_data);
 
