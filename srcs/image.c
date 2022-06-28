@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:16:36 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/28 13:00:03 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/28 13:13:12 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,14 @@ void	move(int key, t_win_data *mlx_data)
 	mlx_destroy_image(mlx_data->mlx, mlx_data->img.img);
 	create_img(mlx_data);
 	if (key == K_UP)
-		mlx_data->fdf.start_y -= 10;
+		mlx_data->fdf.move_y -= 10;
 	else if (key == K_DOWN)
-		mlx_data->fdf.start_y += 10;
+		mlx_data->fdf.move_y += 10;
 	else if (key == K_LEFT)
-		mlx_data->fdf.start_x -= 10;
+		mlx_data->fdf.move_x -= 10;
 	else if (key == K_RIGHT)
-		mlx_data->fdf.start_x += 10;
+		mlx_data->fdf.move_x += 10;
+	get_start_pixels(&mlx_data->fdf);
 	plot_iso(*mlx_data, mlx_data->fdf);
 	mlx_put_image_to_window(mlx_data->mlx, mlx_data->mlx_win,
 		mlx_data->img.img, 0, 0);

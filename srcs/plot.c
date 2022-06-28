@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 21:50:22 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/27 15:31:41 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/28 13:12:25 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,11 @@ void	get_start_pixels(t_fdf *fdf)
 {
 	(*fdf).start_x = (SCREEN_WIDTH / 2) - ((((*fdf).num_columns
 					* (*fdf).tile_size)
-				- ((*fdf).num_rows * fdf->tile_size)) / 2);
+				- ((*fdf).num_rows * fdf->tile_size)) / 2) + (*fdf).move_x;
 	(*fdf).start_y = (SCREEN_HEIGHT / 2)
 		- ((((*fdf).num_columns * round(fdf->tile_size * tan(ISO_ANG)))
 				+ ((*fdf).num_rows * round(fdf->tile_size
-						* tan(ISO_ANG)))) / 2);
+						* tan(ISO_ANG)))) / 2) + (*fdf).move_y;
 }
 
 void	plot_columns_iso(t_win_data mlx_data, t_fdf fdf, t_iso *iso)

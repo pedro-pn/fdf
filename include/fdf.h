@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/28 13:04:52 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/28 13:11:56 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ typedef struct s_fdf
 	char	**map;
 	int		start_x;
 	int		start_y;
+	int		move_x;
+	int		move_y;
 	int		tile_size;
 	int		z_factor;
 }			t_fdf;

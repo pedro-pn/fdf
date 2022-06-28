@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:23:32 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/27 15:31:55 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/28 13:17:21 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	fdf_init(t_fdf *fdf, char *file_name)
 	fdf->matrix_color = malloc(sizeof(int *) * (fdf->num_rows + 1));
 	fdf->matrix_color[fdf->num_rows] = NULL;
 	fdf->num_columns = get_columns_matrix(fdf->map);
+	fdf->move_x = 0;
+	fdf->move_y = 0;
 	get_matrix(fdf);
 	fdf->tile_size = get_tile_size(fdf->num_rows, fdf->num_columns);
 	get_start_pixels(fdf);
