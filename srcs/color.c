@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:18:53 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/27 12:16:59 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/28 13:07:21 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,22 @@ void	get_column_color(t_fdf fdf, t_iso iso, t_color *color)
 {
 	color->color_end = fdf.matrix_color[iso.row][iso.column];
 	color->color = fdf.matrix_color[iso.row + 1][iso.column];
+}
+
+void	paint_image(t_img *img)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (y <= SCREEN_HEIGHT)
+	{
+		x = 0;
+		while (x <= SCREEN_WIDTH)
+		{
+			my_mlx_pixel_put(img, x, y, SCREEN_COLOR);
+			x++;
+		}
+		y++;
+	}
 }

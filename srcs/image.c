@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:16:36 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/27 12:17:43 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/28 13:00:03 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	create_img(t_win_data *mlx_data)
 	mlx_data->img.addr = mlx_get_data_addr(mlx_data->img.img,
 			&(mlx_data->img.bits_per_pixel), &(mlx_data->img.line_length),
 			&(mlx_data->img.endian));
+	paint_image(&mlx_data->img);
 }
 
 void	zoom(int key, t_win_data *mlx_data)

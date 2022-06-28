@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/27 16:53:07 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/28 13:04:52 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 # include <stdio.h>
 
 # define SCREEN_WIDTH 1024
-# define SCREEN_HEIGHT 768
+# define SCREEN_HEIGHT 600
+# define SCREEN_COLOR 0X001C1522
 # define ISO_ANG 0.463646716
 
 typedef struct s_color
@@ -123,6 +124,7 @@ void			clean_program(t_win_data *mlx_data, t_fdf *fdf);
 int				htoi(char *hptr);
 int				mod(int n);
 //color
+void			paint_image(t_img *img);
 void			get_matrix_color(t_fdf *fdf, char **row_splt, int row);
 void			get_row_color(t_fdf fdf, t_iso iso, t_color *color);
 void			get_column_color(t_fdf fdf, t_iso iso, t_color *color);
