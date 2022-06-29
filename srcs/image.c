@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:16:36 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/29 19:08:01 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/29 20:27:06 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,15 @@ void	move(int key, t_win_data *mlx_data)
 
 void	change_z(int key, t_win_data *mlx_data)
 {
-	int	increment;
+	float	increment;
 
 	increment = 0;
 	mlx_destroy_image(mlx_data->mlx, mlx_data->img.img);
 	create_img(mlx_data);
 	if (key == K_COMMA)
-		increment = -2;
+		increment = -0.1;
 	if (key == K_DOT)
-		increment = 2;
+		increment = +0.1;
 	mlx_data->fdf.z_factor += increment;
 	plot(*mlx_data, mlx_data->fdf);
 	mlx_put_image_to_window(mlx_data->mlx, mlx_data->mlx_win,

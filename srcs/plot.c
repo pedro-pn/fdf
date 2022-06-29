@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 21:50:22 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/29 19:14:37 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/29 20:26:19 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_plot	get_plot(int x, int y, t_fdf fdf)
 
 	p_set.x = x * fdf.tile_size;
 	p_set.y = y * fdf.tile_size;
-	p_set.z = fdf.matrix[y][x] * fdf.z_factor;
+	p_set.z = fdf.matrix[y][x] * fdf.tile_size * fdf.z_factor;
 	isometric(&p_set.x, &p_set.y, p_set.z);
 	p_set.x += (SCREEN_WIDTH - MENU_WIDTH - fdf.num_columns * fdf.tile_size) / 2
 			+ (fdf.num_rows * fdf.tile_size) / 2 + fdf.move_x * fdf.tile_size;

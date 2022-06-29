@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/29 19:15:48 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/29 20:19:26 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define SCREEN_WIDTH 1024
 # define SCREEN_HEIGHT 600
 # define MENU_WIDTH 200
-# define ISO_ANG 0.463646716
+# define ISO_ANG 0.523599 // 0.463646716
 
 typedef struct s_color
 {
@@ -77,7 +77,7 @@ typedef struct s_fdf
 	int		move_x;
 	int		move_y;
 	int		tile_size;
-	int		z_factor;
+	float	z_factor;
 }			t_fdf;
 
 typedef struct s_win_data
