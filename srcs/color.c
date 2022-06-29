@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:18:53 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/28 20:52:14 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/28 22:43:45 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	get_matrix_color(t_fdf *fdf, char **row_splt, int row)
 		if (hexaptr)
 			(fdf->matrix_color)[row][column] = htoi(hexaptr++);
 		else
-			(fdf->matrix_color)[row][column] = 0X00FFFFFF;
+			(fdf->matrix_color)[row][column] = GRID_C;
 		column++;
 	}
 }
@@ -53,7 +53,7 @@ void	paint_image(t_img *img)
 		x = 0;
 		while (x <= SCREEN_WIDTH)
 		{
-			my_mlx_pixel_put(img, x, y, SCREEN_COLOR);
+			my_mlx_pixel_put(img, x, y, SCREEN_C);
 			x++;
 		}
 		y++;
@@ -71,7 +71,7 @@ void	paint_menu(t_img *menu)
 		x = 0;
 		while (x <= 200)
 		{
-			my_mlx_pixel_put(menu, x, y, MENU_COLOR);
+			my_mlx_pixel_put(menu, x, y, MENU_C);
 			x++;
 		}
 		y++;

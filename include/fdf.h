@@ -6,13 +6,14 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/28 20:45:11 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/28 22:43:56 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 # include "libft.h"
+# include "color.h"
 # include "keys.h"
 # include "mlx.h"
 # include <fcntl.h>
@@ -22,8 +23,6 @@
 # define SCREEN_WIDTH 1024
 # define SCREEN_HEIGHT 600
 # define MENU_WIDTH 200
-# define SCREEN_COLOR 0X001C1522//0x001d2528 0X001C1522
-# define MENU_COLOR 0x002a2730//0X006B6B6B 0x00422c3b 0x00232c31
 # define ISO_ANG 0.463646716
 
 typedef struct s_color
