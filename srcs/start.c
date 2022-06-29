@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:23:32 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/28 20:46:15 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/29 19:49:21 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	fdf_default(t_fdf *fdf)
 	fdf->move_x = 0;
 	fdf->move_y = 0;
 	fdf->tile_size = get_tile_size(fdf->num_rows, fdf->num_columns);
+	ft_printf("tile: %d\n", fdf->tile_size);
 	fdf->z_factor = 2;
-	get_start_pixels(fdf);
 }
 
 void	mlx_start(t_win_data *mlx_data)
@@ -47,8 +47,7 @@ int	get_tile_size(int row, int column)
 	int	total_area;
 
 	total_area = SCREEN_WIDTH * SCREEN_HEIGHT / 4;
-	tile_size = round(sqrt(total_area / (tan(ISO_ANG)
-					* pow(row + column - 2, 2))));
+	tile_size = sqrt(total_area / (row * column));
 	if (tile_size < 2)
 		return (2);
 	return (tile_size);

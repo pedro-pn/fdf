@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/28 22:43:56 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/29 19:15:48 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ typedef struct s_bresendata
 	int	dy;
 }			t_bresendata;
 
-typedef struct s_iso
+typedef struct s_plot
 {
 	int	row;
 	int	column;
@@ -61,9 +61,11 @@ typedef struct s_iso
 	int	y;
 	int	xk;
 	int	yk;
+	int z;
+	int zk;
 	int	first_x;
 	int	first_y;
-}			t_iso;
+}			t_plot;
 
 typedef struct s_fdf
 {
@@ -72,8 +74,6 @@ typedef struct s_fdf
 	int		**matrix;
 	int		**matrix_color;
 	char	**map;
-	int		start_x;
-	int		start_y;
 	int		move_x;
 	int		move_y;
 	int		tile_size;
@@ -90,7 +90,8 @@ typedef struct s_win_data
 }				t_win_data;
 
 // Bresenham's algorithm
-t_bresendata	get_bresendata(int x1, int y1, int xk, int yk);
+t_bresendata	get_bresendata(t_plot p1, t_plot pk);
+t_bresendata	fix_bresen(int x1, int y1, int xk, int yk);
 void			bresen_alg(t_img *img, t_bresendata cord);
 void			draw_line_1(t_img *img, t_bresendata cord);
 void			draw_line_2(t_img *img, t_bresendata cord);
@@ -113,9 +114,7 @@ void			check_args(int argc, char *argv[]);
 // Isometric projection
 void			get_start_pixels(t_fdf *fdf);
 int				get_tile_size(int row, int column);
-void			plot_iso(t_win_data mlx_data, t_fdf fdf);
-void			plot_rows_iso(t_win_data mlx_data, t_fdf fdf);
-void			plot_columns_iso(t_win_data mlx_data, t_fdf fdf, t_iso *iso);
+void			plot(t_win_data mlx_data, t_fdf fdf);
 // Projection Movements
 void			zoom(int key, t_win_data *mlx_data);
 void			move(int key, t_win_data *mlx_data);
@@ -131,12 +130,15 @@ int				mod(int n);
 //color
 void			paint_image(t_img *img);
 void			get_matrix_color(t_fdf *fdf, char **row_splt, int row);
-void			get_row_color(t_fdf fdf, t_iso iso, t_color *color);
-void			get_column_color(t_fdf fdf, t_iso iso, t_color *color);
+void			get_row_color(t_fdf fdf, int x, int y, t_color *color);
+void			get_column_color(t_fdf fdf, int x, int y, t_color *color);
 void			get_distance(t_bresendata cord, t_color *color);
 int				get_color(t_color color, t_bresendata cord);
 // Menu
 void			create_menu(t_win_data *mlx_data);
 void			paint_menu(t_img *menu);
+
+t_plot	get_plot(int x, int y, t_fdf fdf);
+void	isometric(int *x, int *y, int z);	
 
 #endif

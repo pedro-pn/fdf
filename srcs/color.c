@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:18:53 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/28 22:43:45 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/29 14:30:42 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,16 @@ void	get_matrix_color(t_fdf *fdf, char **row_splt, int row)
 	}
 }
 
-void	get_row_color(t_fdf fdf, t_iso iso, t_color *color)
+void	get_row_color(t_fdf fdf, int x, int y, t_color *color)
 {
-	color->color = fdf.matrix_color[iso.row][iso.column];
-	color->color_end = fdf.matrix_color[iso.row][iso.column + 1];
+	color->color = fdf.matrix_color[y][x];
+	color->color_end = fdf.matrix_color[y][x + 1];
 }
 
-void	get_column_color(t_fdf fdf, t_iso iso, t_color *color)
+void	get_column_color(t_fdf fdf, int x, int y, t_color *color)
 {
-	color->color_end = fdf.matrix_color[iso.row][iso.column];
-	color->color = fdf.matrix_color[iso.row + 1][iso.column];
+	color->color_end = fdf.matrix_color[y][x];
+	color->color = fdf.matrix_color[y + 1][x];
 }
 
 void	paint_image(t_img *img)

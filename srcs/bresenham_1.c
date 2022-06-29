@@ -6,13 +6,26 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:00:00 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/27 16:48:50 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/29 18:35:39 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_bresendata	get_bresendata(int x1, int y1, int xk, int yk)
+t_bresendata	get_bresendata(t_plot p1, t_plot pk) // alterar chamadas em bresenalg_2
+{
+	t_bresendata	cord;
+
+	cord.x1 = p1.x;
+	cord.xk = pk.x;
+	cord.y1 = p1.y;
+	cord.yk = pk.y;
+	cord.dx = pk.x - p1.x;
+	cord.dy = pk.y - p1.y;
+	return (cord);
+}
+
+t_bresendata	fix_bresen(int x1, int y1, int xk, int yk)
 {
 	t_bresendata	cord;
 

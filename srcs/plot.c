@@ -6,92 +6,63 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 21:50:22 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/28 13:12:25 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/29 19:14:37 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	start_iso(t_iso *iso, t_fdf fdf)
+void	plot(t_win_data mlx_data, t_fdf fdf)
 {
-	iso->y = fdf.start_y + round(fdf.tile_size * tan(ISO_ANG));
-	iso->x = fdf.start_x - fdf.tile_size;
-	iso->first_x = 0;
-	iso->first_y = 0;
-	iso->row = 0;
-	iso->column = 0;
-}
+	int x;
+	int y;
 
-void	draw_iso(t_win_data mlx_data, t_fdf fdf, t_iso *iso)
-{
-	t_bresendata	cord;
-
-	iso->xk = iso->x + (fdf.tile_size);
-	iso->yk = iso->y + (round(fdf.tile_size * tan(ISO_ANG)))
-		+ (fdf.matrix[iso->row][iso->column]
-			- fdf.matrix[iso->row][iso->column + 1]) * fdf.z_factor;
-	cord = get_bresendata(iso->x, iso->y, iso->xk, iso->yk);
-	get_row_color(fdf, *iso, &(mlx_data.img.color));
-	bresen_alg(&(mlx_data.img), cord);
-	plot_columns_iso(mlx_data, fdf, iso);
-	iso->column++;
-	iso->y = iso->yk;
-	iso->x = iso->xk;
-}
-
-void	plot_iso(t_win_data mlx_data, t_fdf fdf)
-{
-	t_iso	iso;
-
-	start_iso(&iso, fdf);
-	while (iso.row < fdf.num_rows)
+	y = 0;
+	while (y < fdf.num_rows)
 	{
-		iso.column = 0;
-		if (iso.row != 0)
+		x = 0;
+		while (x < fdf.num_columns)
 		{
-			iso.y = iso.first_y;
-			iso.x = iso.first_x;
+			if (x + 1 < fdf.num_columns)
+			{
+				get_row_color(fdf, x, y, &mlx_data.img.color);
+				bresen_alg(&mlx_data.img, get_bresendata(get_plot(x, y, fdf),
+					get_plot(x+1, y, fdf)));
+			}
+			if (y + 1 < fdf.num_rows)
+			{
+				get_column_color(fdf, x, y, &mlx_data.img.color);
+				bresen_alg(&mlx_data.img, get_bresendata(get_plot(x, y, fdf),
+					get_plot(x, y + 1, fdf)));
+			}
+			x++;
 		}
-		while (iso.column < fdf.num_columns - 1)
-			draw_iso(mlx_data, fdf, &iso);
-		iso.row++;
+		y++;
 	}
 }
 
-void	get_start_pixels(t_fdf *fdf)
+t_plot	get_plot(int x, int y, t_fdf fdf)
 {
-	(*fdf).start_x = (SCREEN_WIDTH / 2) - ((((*fdf).num_columns
-					* (*fdf).tile_size)
-				- ((*fdf).num_rows * fdf->tile_size)) / 2) + (*fdf).move_x;
-	(*fdf).start_y = (SCREEN_HEIGHT / 2)
-		- ((((*fdf).num_columns * round(fdf->tile_size * tan(ISO_ANG)))
-				+ ((*fdf).num_rows * round(fdf->tile_size
-						* tan(ISO_ANG)))) / 2) + (*fdf).move_y;
+	t_plot p_set;
+
+	p_set.x = x * fdf.tile_size;
+	p_set.y = y * fdf.tile_size;
+	p_set.z = fdf.matrix[y][x] * fdf.z_factor;
+	isometric(&p_set.x, &p_set.y, p_set.z);
+	p_set.x += (SCREEN_WIDTH - MENU_WIDTH - fdf.num_columns * fdf.tile_size) / 2
+			+ (fdf.num_rows * fdf.tile_size) / 2 + fdf.move_x * fdf.tile_size;
+	p_set.y += (SCREEN_HEIGHT - fdf.num_rows * fdf.tile_size) / 2 + fdf.move_y
+			* fdf.tile_size;
+	return (p_set);
 }
 
-void	plot_columns_iso(t_win_data mlx_data, t_fdf fdf, t_iso *iso)
+void	isometric(int *x, int *y, int z)
 {
-	int	nxk;
-	int	nyk;
+	int	previous_x;
+	int previous_y;
 
-	if (iso->row < fdf.num_rows - 1)
-	{
-		get_column_color(fdf, *iso, &mlx_data.img.color);
-		nxk = iso->x - (fdf.tile_size);
-		nyk = iso->y + (round(fdf.tile_size * tan(ISO_ANG)))
-			+ (fdf.matrix[iso->row][iso->column]
-				- fdf.matrix[iso->row + 1][iso->column]) * fdf.z_factor;
-		bresen_alg(&(mlx_data.img), get_bresendata(iso->x, iso->y, nxk, nyk));
-		if (iso->column == 0)
-		{
-			iso->first_y = nyk;
-			iso->first_x = nxk;
-		}
-		get_column_color(fdf, *iso, &mlx_data.img.color);
-		nxk = iso->xk - (fdf.tile_size);
-		nyk = iso->yk + (round(fdf.tile_size * tan(ISO_ANG)))
-			+ (fdf.matrix[iso->row][iso->column + 1]
-				- fdf.matrix[iso->row + 1][iso->column + 1]) * fdf.z_factor;
-		bresen_alg(&(mlx_data.img), get_bresendata(iso->xk, iso->yk, nxk, nyk));
-	}
+	previous_x = *x;
+	previous_y = *y;
+	*x = (previous_x - previous_y) * cos(ISO_ANG);
+	*y = -z + (previous_x + previous_y) * sin(ISO_ANG);
 }
