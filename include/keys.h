@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 17:58:39 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/29 21:51:24 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/30 12:12:29 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@
 # define K_R 114
 # define K_E 101
 # define K_Q 113
+# define K_W 119
+# define K_S 115
+# define K_A 97
+# define K_D 100
 
 int	key_handle(int key, void *mlx_data);
 
