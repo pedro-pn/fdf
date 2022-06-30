@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/29 20:19:26 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/29 23:43:16 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,9 @@ typedef struct s_fdf
 	int		move_y;
 	int		tile_size;
 	float	z_factor;
+	double	alpha;
+	double	beta;
+	double	gamma;
 }			t_fdf;
 
 typedef struct s_win_data
@@ -97,6 +100,8 @@ void			draw_line_1(t_img *img, t_bresendata cord);
 void			draw_line_2(t_img *img, t_bresendata cord);
 void			draw_line_3(t_img *img, t_bresendata cord);
 void			draw_line_4(t_img *img, t_bresendata cord);
+void			draw_line_dy(t_img *img, t_bresendata cord);
+void			draw_line_dx(t_img *img, t_bresendata cord);
 // Read file and build matrix
 int				count_lines(char *file_name);
 int				get_columns_matrix(char **map);
@@ -120,6 +125,8 @@ void			zoom(int key, t_win_data *mlx_data);
 void			move(int key, t_win_data *mlx_data);
 void			change_z(int key, t_win_data *mlx_data);
 void			reset_position(t_win_data *mlx_data);
+void			rotate(int key, t_win_data *mlx_data);
+void			rotate_z(t_plot *p_set, t_fdf fdf);
 // Clean memory and exit program
 int				exit_win(void *mlx_data);
 void			clean_matrix(void **matrix);

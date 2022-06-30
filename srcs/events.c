@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:00:15 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/28 20:49:19 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/29 21:52:36 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ int	key_handle(int key, void *mlx_data)
 		change_z(key, (t_win_data *)mlx_data);
 	if (key == K_R)
 		reset_position((t_win_data *)mlx_data);
+	if (key == K_Q || key == K_E)
+		rotate(key, (t_win_data *)mlx_data);
 	return (0);
 }

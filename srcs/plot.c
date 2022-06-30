@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 21:50:22 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/29 20:26:19 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/30 00:03:23 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,21 +48,31 @@ t_plot	get_plot(int x, int y, t_fdf fdf)
 	p_set.x = x * fdf.tile_size;
 	p_set.y = y * fdf.tile_size;
 	p_set.z = fdf.matrix[y][x] * fdf.tile_size * fdf.z_factor;
-	isometric(&p_set.x, &p_set.y, p_set.z);
-	p_set.x += (SCREEN_WIDTH - MENU_WIDTH - fdf.num_columns * fdf.tile_size) / 2
-			+ (fdf.num_rows * fdf.tile_size) / 2 + fdf.move_x * fdf.tile_size;
-	p_set.y += (SCREEN_HEIGHT - fdf.num_rows * fdf.tile_size) / 2 + fdf.move_y
-			* fdf.tile_size;
+	p_set.x -= (fdf.num_columns * fdf.tile_size) / 2;
+	p_set.y -= (fdf.num_rows * fdf.tile_size) / 2;
+	rotate_z(&p_set, fdf);
+	//isometric(&p_set.x, &p_set.y, p_set.z);
+	p_set.x += (SCREEN_WIDTH - MENU_WIDTH) / 2 + fdf.move_x + MENU_WIDTH;
+	p_set.y += (SCREEN_HEIGHT + fdf.num_rows * fdf.tile_size) / 2
+												+ fdf.move_y;
+	// p_set.x += (SCREEN_WIDTH - MENU_WIDTH - fdf.num_columns * fdf.tile_size) / 2
+	// 		+ (fdf.num_rows * fdf.tile_size) / 2 + fdf.move_x * fdf.tile_size;
+	// p_set.y += (SCREEN_HEIGHT - fdf.num_rows * fdf.tile_size) / 2 + fdf.move_y
+		//	* fdf.tile_size; // zoom melhorzinho, mas não está centralizado
+	// p_set.x += (SCREEN_WIDTH - MENU_WIDTH) / 2 + (fdf.num_columns - 1 * fdf.tile_size) / 2
+	// 		- (fdf.num_rows - 1 * fdf.tile_size) / 2 + fdf.move_x * fdf.tile_size;
+	// p_set.y += (SCREEN_HEIGHT - fdf.num_rows * fdf.tile_size) + fdf.move_y
+	// 		* fdf.tile_size; // zoom ruim, mas centralizado com rotação
 	return (p_set);
 }
 
 void	isometric(int *x, int *y, int z)
 {
-	int	previous_x;
-	int previous_y;
+	int	temp_x;
+	int temp_y;
 
-	previous_x = *x;
-	previous_y = *y;
-	*x = (previous_x - previous_y) * cos(ISO_ANG);
-	*y = -z + (previous_x + previous_y) * sin(ISO_ANG);
+	temp_x = *x;
+	temp_y = *y;
+	*x = (temp_x - temp_y) * cos(ISO_ANG);
+	*y = -z + (temp_x + temp_y) * sin(ISO_ANG);
 }

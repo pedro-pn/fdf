@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:23:32 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/29 20:20:43 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/29 21:35:30 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,10 @@ void	fdf_default(t_fdf *fdf)
 {
 	fdf->move_x = 0;
 	fdf->move_y = 0;
+	fdf->alpha = 0;
+	fdf->beta = 0;
+	fdf->gamma = 0;
 	fdf->tile_size = get_tile_size(fdf->num_rows, fdf->num_columns);
-	ft_printf("tile: %d\n", fdf->tile_size);
 	fdf->z_factor = 1;
 }
 
