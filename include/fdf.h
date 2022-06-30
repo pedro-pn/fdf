@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/30 13:25:23 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/30 17:23:49 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # define SCREEN_HEIGHT 600
 # define MENU_WIDTH 200
 # define ISO_ANG 0.523599
+# define ISOMETRIC 1
+# define ORTHOGRAPHIC 2
 
 typedef struct s_color
 {
@@ -72,6 +74,7 @@ typedef struct s_fdf
 	int		move_x;
 	int		move_y;
 	int		tile_size;
+	int		projection;
 	float	z_factor;
 	double	alpha;
 	double	beta;
@@ -115,7 +118,7 @@ int				get_tile_size(int row, int column);
 void			plot(t_win_data mlx_data, t_fdf fdf);
 t_plot			get_plot(int x, int y, t_fdf fdf);
 void			isometric(int *x, int *y, int z);
-// Projection Movements
+// Projection utils
 void			zoom(int key, t_win_data *mlx_data);
 void			move(int key, t_win_data *mlx_data);
 void			change_z(int key, t_win_data *mlx_data);
@@ -124,6 +127,7 @@ void			rotate(int key, t_win_data *mlx_data);
 void			rotate_x(t_plot *p_set, t_fdf fdf);
 void			rotate_y(t_plot *p_set, t_fdf fdf);
 void			rotate_z(t_plot *p_set, t_fdf fdf);
+void			projection_type(int key, t_win_data *mlx_data);
 // Clean memory and exit program
 int				exit_win(void *mlx_data);
 void			clean_matrix(void **matrix);

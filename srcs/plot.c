@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 21:50:22 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/30 13:22:40 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/30 17:18:00 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ t_plot	get_plot(int x, int y, t_fdf fdf)
 	rotate_x(&p_set, fdf);
 	rotate_y(&p_set, fdf);
 	rotate_z(&p_set, fdf);
-	isometric(&p_set.x, &p_set.y, p_set.z);
+	if (fdf.projection == ISOMETRIC)
+		isometric(&p_set.x, &p_set.y, p_set.z);
 	p_set.x += (SCREEN_WIDTH - MENU_WIDTH) / 2 + fdf.move_x;
 	p_set.y += SCREEN_HEIGHT / 2 + fdf.num_rows * fdf.tile_size / 4
 		+ fdf.move_y;
@@ -69,4 +70,17 @@ void	isometric(int *x, int *y, int z)
 	temp_y = *y;
 	*x = (temp_x - temp_y) * cos(ISO_ANG);
 	*y = -z + (temp_x + temp_y) * sin(ISO_ANG);
+}
+
+void	projection_type(int key, t_win_data *mlx_data)
+{
+	mlx_destroy_image(mlx_data->mlx, mlx_data->img.img);
+	create_img(mlx_data);
+	if (key == K_O)
+		mlx_data->fdf.projection = ORTHOGRAPHIC;
+	if (key == K_I)
+		mlx_data->fdf.projection = ISOMETRIC;
+	plot(*mlx_data, mlx_data->fdf);
+	mlx_put_image_to_window(mlx_data->mlx, mlx_data->mlx_win,
+		mlx_data->img.img, MENU_WIDTH, 0);
 }

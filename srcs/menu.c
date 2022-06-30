@@ -6,11 +6,13 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 13:41:17 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/30 13:47:15 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/30 17:33:44 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+static void	print_menu_2(t_win_data *mlx_data);
 
 static void	print_menu(t_win_data *mlx_data)
 {
@@ -38,7 +40,20 @@ static void	print_menu(t_win_data *mlx_data)
 	mlx_string_put(mlx, win, 20, 325, TITLE_C, "Z-axis");
 	mlx_string_put(mlx, win, 40, 345, MANUAL_C, "Increase: '>'");
 	mlx_string_put(mlx, win, 40, 360, MANUAL_C, "Decrease: '<'");
-	mlx_string_put(mlx, win, 20, 380, TITLE_C, "Reset: 'R'");
+	print_menu_2(mlx_data);
+}
+
+static void	print_menu_2(t_win_data *mlx_data)
+{
+	void	*mlx;
+	void	*win;
+
+	mlx = mlx_data->mlx;
+	win = mlx_data->mlx_win;
+	mlx_string_put(mlx, win, 20, 380, TITLE_C, "Projection");
+	mlx_string_put(mlx, win, 40, 400, MANUAL_C, "Isometric: 'I'");
+	mlx_string_put(mlx, win, 40, 415, MANUAL_C, "Orthographic: 'O'");
+	mlx_string_put(mlx, win, 20, 435, TITLE_C, "Reset: 'R'");
 }
 
 void	create_menu(t_win_data *mlx_data)
