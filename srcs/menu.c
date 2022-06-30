@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 13:41:17 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/29 20:34:08 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/30 13:47:15 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,18 @@ static void	print_menu(t_win_data *mlx_data)
 	mlx_string_put(mlx, win, 40, 135, MANUAL_C, "Down: DOWN key");
 	mlx_string_put(mlx, win, 40, 150, MANUAL_C, "Left: LEFT key");
 	mlx_string_put(mlx, win, 40, 165, MANUAL_C, "Right: RIGHT key");
-	mlx_string_put(mlx, win, 20, 185, TITLE_C, "Zoom");
-	mlx_string_put(mlx, win, 40, 205, MANUAL_C, "Zoom in: '+'");
-	mlx_string_put(mlx, win, 40, 220, MANUAL_C, "Zoom out: '-'");
-	mlx_string_put(mlx, win, 20, 240, TITLE_C, "Z-axis");
-	mlx_string_put(mlx, win, 40, 260, MANUAL_C, "Increase: '>'");
-	mlx_string_put(mlx, win, 40, 275, MANUAL_C, "Decrease: '<'");
-	mlx_string_put(mlx, win, 20, 305, TITLE_C, "Reset: 'R'");
+	mlx_string_put(mlx, win, 20, 185, TITLE_C, "Rotations");
+	mlx_string_put(mlx, win, 40, 205, MANUAL_C, "X-axis = 'W' and 'S'");
+	mlx_string_put(mlx, win, 40, 220, MANUAL_C, "Y-axis = 'A' and 'D'");
+	mlx_string_put(mlx, win, 40, 235, MANUAL_C, "Z-axis = 'Q' and 'E'");
+	mlx_string_put(mlx, win, 40, 250, MANUAL_C, "Right: RIGHT key");
+	mlx_string_put(mlx, win, 20, 270, TITLE_C, "Zoom");
+	mlx_string_put(mlx, win, 40, 290, MANUAL_C, "Zoom in: '+'");
+	mlx_string_put(mlx, win, 40, 305, MANUAL_C, "Zoom out: '-'");
+	mlx_string_put(mlx, win, 20, 325, TITLE_C, "Z-axis");
+	mlx_string_put(mlx, win, 40, 345, MANUAL_C, "Increase: '>'");
+	mlx_string_put(mlx, win, 40, 360, MANUAL_C, "Decrease: '<'");
+	mlx_string_put(mlx, win, 20, 380, TITLE_C, "Reset: 'R'");
 }
 
 void	create_menu(t_win_data *mlx_data)
