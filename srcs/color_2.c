@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 12:16:41 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/27 16:55:46 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/07/01 12:07:12 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,13 @@ void	get_distance(t_bresendata cord, t_color *color)
 {
 	color->distance = mod(cord.dx);
 	color->start_point = cord.x1;
+}
+
+void	invert_color(t_color *color)
+{
+	int	temp;
+
+	temp = color->color;
+	color->color = color->color_end;
+	color->color_end = temp;
 }

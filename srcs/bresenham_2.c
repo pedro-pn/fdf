@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:13:23 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/30 13:04:35 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/07/01 12:08:45 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ void	draw_line_1(t_img *img, t_bresendata cord)
 	int	p;
 
 	if (cord.dx <= 0 && cord.dy <= 0)
+	{
 		cord = fix_bresen(cord.xk, cord.yk, cord.x1, cord.y1);
+		invert_color(&img->color);
+	}
 	p = 2 * cord.dy - cord.dx;
 	get_distance(cord, &(img->color));
 	while (cord.x1 <= cord.xk)
@@ -39,7 +42,10 @@ void	draw_line_2(t_img *img, t_bresendata cord)
 	int	p;
 
 	if (cord.dx <= 0 && cord.dy <= 0)
+	{
 		cord = fix_bresen(cord.yk, cord.xk, cord.y1, cord.x1);
+		invert_color(&img->color);
+	}
 	else
 		cord = fix_bresen(cord.y1, cord.x1, cord.yk, cord.xk);
 	p = 2 * cord.dy - cord.dx;
@@ -63,7 +69,10 @@ void	draw_line_3(t_img *img, t_bresendata cord)
 	int	p;
 
 	if (cord.dx <= 0 && cord.dy >= 0)
+	{
 		cord = fix_bresen(cord.xk, -cord.yk, cord.x1, -cord.y1);
+		invert_color(&img->color);
+	}
 	else
 		cord = fix_bresen(cord.x1, -cord.y1, cord.xk, -cord.yk);
 	p = 2 * cord.dy - cord.dx;
@@ -85,13 +94,12 @@ void	draw_line_3(t_img *img, t_bresendata cord)
 void	draw_line_4(t_img *img, t_bresendata cord)
 {
 	int	p;
-	int	temp;
 
-	temp = img->color.color;
-	img->color.color = img->color.color_end;
-	img->color.color_end = temp;
 	if (cord.dx >= 0 && cord.dy <= 0)
+	{
 		cord = fix_bresen(cord.yk, -cord.xk, cord.y1, -cord.x1);
+		invert_color(&img->color);
+	}
 	else
 		cord = fix_bresen(cord.y1, -cord.x1, cord.yk, -cord.xk);
 	p = 2 * cord.dy - cord.dx;

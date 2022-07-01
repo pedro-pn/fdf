@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:18:53 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/29 14:30:42 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/07/01 11:50:36 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	get_row_color(t_fdf fdf, int x, int y, t_color *color)
 
 void	get_column_color(t_fdf fdf, int x, int y, t_color *color)
 {
-	color->color_end = fdf.matrix_color[y][x];
-	color->color = fdf.matrix_color[y + 1][x];
+	color->color_end = fdf.matrix_color[y + 1][x];
+	color->color = fdf.matrix_color[y][x];
 }
 
 void	paint_image(t_img *img)
