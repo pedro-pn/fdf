@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/30 19:16:41 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/06/30 19:20:53 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,6 @@ void			my_mlx_pixel_put(t_img *data, int x, int y, int color);
 void			error(char *error_str);
 void			check_args(int argc, char *argv[]);
 // Projection
-void			get_start_pixels(t_fdf *fdf);
 int				get_tile_size(int row, int column);
 void			plot(t_win_data mlx_data, t_fdf fdf);
 t_plot			get_plot(int x, int y, t_fdf fdf);
