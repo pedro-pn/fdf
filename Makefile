@@ -8,7 +8,7 @@ SRCS_PATH = srcs
 OBJS_PATH = objs
 SRCS = ${addprefix ${SRCS_PATH}/, ${SOURCES}}
 OBJS = ${addprefix ${OBJS_PATH}/, ${SOURCES:.c=.o}}
-FLAGS = -Wall -Werror -Wextra -g
+FLAGS = -Wall -Werror -Wextra
 CC = gcc
 
 # Colors
@@ -23,11 +23,11 @@ all:	${NAME}
 ${OBJS_PATH}/%.o:	${SRCS_PATH}/%.c
 					@ echo "Compiling: $<"
 					@ mkdir -p objs
-					@ $(CC) ${FLAGS} -I./libft/include -I./${INCLUDES} -I/usr/include -Imlx_linux -O3\
+					@ $(CC) ${FLAGS} -I ./libft/include -I ./${INCLUDES} -Imlx_linux \
 					-c $< -o $@
 
 $(NAME): $(LIBFT) $(OBJS)
-	 @ $(CC) $(OBJS) ${LIBFT} -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	 @ $(CC) $(OBJS) ${LIBFT} -Lmlx_linux -lmlx_Linux -lXext -lX11 -lm -o $(NAME)
 	 @ echo "$(GREEN)Done!${NC}"
 
 ${LIBFT}:

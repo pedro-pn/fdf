@@ -15,8 +15,8 @@ SRCS_PATH = srcs
 OBJS_PATH = objs
 SRCS = ${addprefix ${SRCS_PATH}/, ${SOURCES}}
 OBJS = ${addprefix ${OBJS_PATH}/, ${SOURCES:.c=.o}}
-CC = cc
-FLAGS = -g -Werror -Wall -Wextra
+CC = gcc
+FLAGS = -Werror -Wall -Wextra
 NAME = libft.a
 
 all: ${NAME}
