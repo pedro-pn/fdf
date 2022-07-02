@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 10:46:13 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/07/02 15:39:43 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/07/02 17:48:46 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	main(int argc, char *argv[])
 	mlx_put_image_to_window(mlx_data.mlx, mlx_data.mlx_win,
 		mlx_data.img.img, MENU_WIDTH, 0);
 	mlx_hook(mlx_data.mlx_win, 17, 0, &exit_win, &mlx_data);
+	mlx_hook(mlx_data.mlx_win, 2, 1L<<0, &key_press, &mlx_data);
 	mouse_hook(&mlx_data);
 	mlx_key_hook(mlx_data.mlx_win, &key_handle, &mlx_data);
 	mlx_loop(mlx_data.mlx);

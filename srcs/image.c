@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:16:36 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/30 19:18:41 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/07/02 17:54:16 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	zoom(int key, t_win_data *mlx_data)
 	int	increment;
 
 	increment = 0;
-	if (key == K_PLUS)
+	if (key == K_PLUS || key == MS_UP)
 		increment = 2;
-	else if (key == K_MINUS)
+	else if (key == K_MINUS || key == MS_DOWN)
 		increment = -2;
 	if (mlx_data->fdf.tile_size > 1)
 		mlx_data->fdf.tile_size += increment;
@@ -52,9 +52,9 @@ void	change_z(int key, t_win_data *mlx_data)
 	float	increment;
 
 	increment = 0;
-	if (key == K_COMMA)
+	if (key == K_COMMA || key == MS_DOWN)
 		increment = -0.1;
-	if (key == K_DOT)
+	if (key == K_DOT || key == MS_UP)
 		increment = +0.1;
 	mlx_data->fdf.z_factor += increment;
 	reproject(mlx_data);

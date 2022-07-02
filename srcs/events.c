@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:00:15 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/30 17:23:10 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/07/02 17:50:39 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,14 @@ int	key_handle(int key, void *mlx_data)
 		rotate(key, (t_win_data *)mlx_data);
 	if (key == K_O || key == K_I)
 		projection_type(key, (t_win_data *)mlx_data);
+	if (key == K_SHIFT)
+		((t_win_data *)mlx_data)->mouse.shift = FALSE;
+	return (0);
+}
+
+int	key_press(int key, void *mlx_data)
+{
+	if (key == K_SHIFT)
+		((t_win_data *)mlx_data)->mouse.shift = TRUE;
 	return (0);
 }
