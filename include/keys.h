@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 17:58:39 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/07/02 17:49:17 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/07/02 18:02:09 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ typedef struct s_mouse
 	int	shift;
 }			t_mouse;
 
-int	key_handle(int key, void *mlx_data);
+int	key_release(int key, void *mlx_data);
 
 #endif

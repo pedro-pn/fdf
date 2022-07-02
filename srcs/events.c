@@ -6,11 +6,21 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:00:15 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/07/02 17:50:39 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/07/02 18:12:31 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+void	event_hook(t_win_data *mlx_data)
+{
+	mlx_hook(mlx_data->mlx_win, 4, 1L << 2, &mouse_press, mlx_data);
+	mlx_hook(mlx_data->mlx_win, 5, 1L << 3, &mouse_release, mlx_data);
+	mlx_hook(mlx_data->mlx_win, 6, 1L << 6, &mouse_rotate, mlx_data);
+	mlx_hook(mlx_data->mlx_win, 17, 0, &exit_win, mlx_data);
+	mlx_hook(mlx_data->mlx_win, 2, 1L << 0, &key_press, mlx_data);
+	mlx_key_hook(mlx_data->mlx_win, &key_release, mlx_data);
+}
 
 int	exit_win(void *mlx_data)
 {
@@ -24,7 +34,7 @@ int	exit_win(void *mlx_data)
 	return (0);
 }
 
-int	key_handle(int key, void *mlx_data)
+int	key_release(int key, void *mlx_data)
 {
 	if (key == K_ESC)
 		exit_win(mlx_data);
