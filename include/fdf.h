@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/07/01 12:07:27 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/07/02 16:15:33 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ typedef struct s_win_data
 	t_img	img;
 	t_img	menu;
 	t_fdf	fdf;
+	t_mouse	mouse;
 }				t_win_data;
 
 // Bresenham's algorithm
@@ -146,5 +147,10 @@ void			invert_color(t_color *color);
 // Menu
 void			create_menu(t_win_data *mlx_data);
 void			paint_menu(t_img *menu);
+// Mouse
+int	mouse_release(int button, int x, int y, void *mlx_data);
+int	mouse_press(int button, int x, int y, void *mlx_data);
+void	mouse_hook(t_win_data *mlx_data);
+int	mouse_rotate(int x, int y, void *mlx_data);
 
 #endif
