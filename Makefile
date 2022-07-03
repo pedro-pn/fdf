@@ -20,6 +20,8 @@ NC = \033[0m
 
 all:	${NAME}
 
+bonus: all
+
 ${OBJS_PATH}/%.o:	${SRCS_PATH}/%.c
 					@ echo "Compiling: $<"
 					@ mkdir -p objs
