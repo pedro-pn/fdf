@@ -16,7 +16,8 @@ OBJS_PATH = objs
 SRCS = ${addprefix ${SRCS_PATH}/, ${SOURCES}}
 OBJS = ${addprefix ${OBJS_PATH}/, ${SOURCES:.c=.o}}
 CC = gcc
-FLAGS = -Werror -Wall -Wextra
+FLAGS = -Werror -Wall -Wextra ${GNL_BUFFER}
+GNL_BUFFER = -D BUFFER_SIZE=42
 NAME = libft.a
 
 all: ${NAME}
