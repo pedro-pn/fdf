@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 17:58:39 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/07/02 18:02:09 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/07/03 00:05:32 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # define K_I 105
 # define K_SHIFT 65505
 # define MB_LEFT 1
+# define MB_RIGHT 3
 # define MS_UP 4
 # define MS_DOWN 5
 # define TRUE 1

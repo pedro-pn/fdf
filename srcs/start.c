@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:23:32 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/07/02 17:45:03 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/07/03 00:44:31 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void	fdf_default(t_fdf *fdf)
 void	mlx_start(t_win_data *mlx_data)
 {
 	mlx_data->mlx = mlx_init();
+	mlx_data->mouse.button = 0;
+	mlx_data->mouse.is_pressed = FALSE;
 	mlx_data->mouse.shift = FALSE;
 	mlx_data->mlx_win = mlx_new_window(mlx_data->mlx, SCREEN_WIDTH,
 			SCREEN_HEIGHT, "FdF");

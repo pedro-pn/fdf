@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/07/02 18:14:21 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/07/03 00:25:38 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,9 @@ void			paint_menu(t_img *menu);
 void			event_hook(t_win_data *mlx_data);
 int				mouse_release(int button, int x, int y, void *mlx_data);
 int				mouse_press(int button, int x, int y, void *mlx_data);
-int				mouse_rotate(int x, int y, void *mlx_data);
+int				mouse_move(int x, int y, void *mlx_data);
+void			mouse_rotate(int x, int y, t_win_data *mlx_data);
+void			mouse_translate(int x, int y, t_win_data *mlx_data);
 int				key_press(int key, void *mlx_data);
 
 #endif
