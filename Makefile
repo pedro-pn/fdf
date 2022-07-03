@@ -34,7 +34,7 @@ $(NAME): $(LIBFT) $(OBJS)
 
 ${LIBFT}:
 		@ echo "Compiling Libft..."
-		@ make -C ./libft --no-print-directory
+		@ make GNL_BUFFER=-DBUFFER_SIZE=1000 -C ./libft --no-print-directory
 		@ echo "Libft successfully compiled!"
 
 clean:
