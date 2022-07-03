@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 21:50:22 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/30 19:18:00 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/07/03 13:35:10 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,7 @@ t_plot	get_plot(int x, int y, t_fdf fdf)
 	if (fdf.projection == ISOMETRIC)
 		isometric(&p_set.x, &p_set.y, p_set.z);
 	p_set.x += (SCREEN_WIDTH - MENU_WIDTH) / 2 + fdf.move_x;
-	p_set.y += SCREEN_HEIGHT / 2 + fdf.num_rows * fdf.tile_size / 4
-		+ fdf.move_y;
+	p_set.y += (SCREEN_HEIGHT / 2) + fdf.move_y;
 	return (p_set);
 }
 

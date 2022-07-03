@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:23:32 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/07/03 00:44:31 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/07/03 13:37:05 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ void	fdf_init(t_fdf *fdf, char *file_name)
 void	fdf_default(t_fdf *fdf)
 {
 	fdf->move_x = 0;
-	fdf->move_y = 0;
+	fdf->move_y = 10;
 	fdf->alpha = 0;
 	fdf->beta = 0;
 	fdf->gamma = 0;
 	fdf->projection = ISOMETRIC;
 	fdf->tile_size = get_tile_size(fdf->num_rows, fdf->num_columns);
-	fdf->z_factor = 1;
+	fdf->z_factor = 0.5;
 }
 
 void	mlx_start(t_win_data *mlx_data)
