@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: ppaulo-d < ppaulo-d@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/07/05 12:49:29 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/07/05 18:02:01 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ int				get_tile_size(int row, int column);
 void			plot(t_win_data mlx_data, t_fdf fdf);
 t_plot			get_plot(int x, int y, t_fdf fdf);
 void			isometric(int *x, int *y, int z);
-int				reproject(void *mlx_data);
+void			reproject(t_win_data *mlx_data);
 // Projection utils
 void			zoom(int key, t_win_data *mlx_data);
 void			move(int key, t_win_data *mlx_data);
@@ -146,7 +146,7 @@ void			invert_color(t_color *color);
 // Menu
 void			create_menu(t_win_data *mlx_data);
 void			paint_menu(t_img *menu);
-int				reproject_menu(void *mlx_data);
+void			reproject_menu(t_win_data *mlx_data);
 // Events
 void			event_hook(t_win_data *mlx_data);
 int				mouse_release(int button, int x, int y, void *mlx_data);
@@ -155,5 +155,6 @@ int				mouse_move(int x, int y, void *mlx_data);
 void			mouse_rotate(int x, int y, t_win_data *mlx_data);
 void			mouse_translate(int x, int y, t_win_data *mlx_data);
 int				key_press(int key, void *mlx_data);
+int				redraw(void *mlx_data);
 
 #endif
