@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppaulo-d < ppaulo-d@student.42sp.org.br    +#+  +:+       +#+        */
+/*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/07/05 17:25:37 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/07/05 12:49:29 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,7 @@ void			invert_color(t_color *color);
 // Menu
 void			create_menu(t_win_data *mlx_data);
 void			paint_menu(t_img *menu);
+int				reproject_menu(void *mlx_data);
 // Events
 void			event_hook(t_win_data *mlx_data);
 int				mouse_release(int button, int x, int y, void *mlx_data);
