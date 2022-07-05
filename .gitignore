@@ -7,3 +7,8 @@ caso*
 run.sh
 .vscode*
 fdf
+*.a
+*/*.o
+mlx_linux/obj/
+mlx_linux/test/
+mlx_linux/*.a

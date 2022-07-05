@@ -3,6 +3,7 @@ SOURCES = main.c bresenham_1.c bresenham_2.c image.c read_file.c \
 			menu.c rotation.c mouse.c
 NAME = fdf
 LIBFT = ./libft/libft.a
+MLX = ./mlx_linux/libmlx_Linux.a
 INCLUDES = include
 SRCS_PATH = srcs
 OBJS_PATH = objs
@@ -15,6 +16,7 @@ CC = gcc
 GREEN =	\033[0;32m
 L_CYAN = \33[1;36m
 L_BLUE = \33[1;34m
+L_GREEN = \33[1;92m
 NC = \033[0m
 
 
@@ -28,14 +30,20 @@ ${OBJS_PATH}/%.o:	${SRCS_PATH}/%.c
 					@ $(CC) ${FLAGS} -I ./libft/include -I ./${INCLUDES} -Imlx_linux \
 					-c $< -o $@
 
-$(NAME): $(LIBFT) $(OBJS)
+$(NAME): $(MLX) $(LIBFT) $(OBJS)
 	 @ $(CC) $(OBJS) ${LIBFT} -Lmlx_linux -lmlx_Linux -lXext -lX11 -lm -o $(NAME)
 	 @ echo "$(GREEN)Done!${NC}"
 
 ${LIBFT}:
 		@ echo "Compiling Libft..."
 		@ make GNL_BUFFER=-DBUFFER_SIZE=1000 -C ./libft --no-print-directory
-		@ echo "Libft successfully compiled!"
+		@ echo "$(L_GREEN)Libft successfully compiled!$(NC)"
+
+${MLX}:
+		@ echo "Compiling Minilibx..."
+		-@ make -C ./mlx_linux --no-print-directory
+		@ clear
+		@ echo "$(L_GREEN)Minilibx successufully compiled!$(NC)"
 
 clean:
 		@ rm -rf ${OBJS_PATH}
@@ -43,6 +51,7 @@ clean:
 
 fclean: clean
 		@ make fclean -C ./libft --no-print-directory
+		@ make clean -C ./mlx_linux --no-print-directory --silent
 		@ rm -f ${NAME}
 		@ echo "${L_BLUE}Program deleted!${NC}"
 
