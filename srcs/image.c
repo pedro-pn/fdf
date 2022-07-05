@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   image.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: ppaulo-d < ppaulo-d@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:16:36 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/07/02 17:54:16 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:37:18 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,17 @@ void	change_z(int key, t_win_data *mlx_data)
 	reproject(mlx_data);
 }
 
-void	reproject(t_win_data *mlx_data)
+int	reproject(void *mlx_data)
 {
-	mlx_destroy_image(mlx_data->mlx, mlx_data->img.img);
-	create_img(mlx_data);
-	plot(*mlx_data, mlx_data->fdf);
-	mlx_put_image_to_window(mlx_data->mlx, mlx_data->mlx_win,
-		mlx_data->img.img, MENU_WIDTH, 0);
+	t_win_data	*mlx;
+
+	mlx = (t_win_data *)mlx_data;
+	mlx_destroy_image(mlx->mlx, mlx->img.img);
+	mlx_destroy_image(mlx->mlx, mlx->menu.img);
+	create_menu(mlx);
+	create_img(mlx);
+	plot(*mlx, mlx->fdf);
+	mlx_put_image_to_window(mlx->mlx, mlx->mlx_win,
+		mlx->img.img, MENU_WIDTH, 0);
+	return (0);
 }

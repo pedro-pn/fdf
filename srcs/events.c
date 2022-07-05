@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: ppaulo-d < ppaulo-d@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:00:15 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/07/03 00:38:48 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:35:21 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	event_hook(t_win_data *mlx_data)
 	mlx_hook(mlx_data->mlx_win, 6, 1L << 6, &mouse_move, mlx_data);
 	mlx_hook(mlx_data->mlx_win, 17, 0, &exit_win, mlx_data);
 	mlx_hook(mlx_data->mlx_win, 2, 1L << 0, &key_press, mlx_data);
+	mlx_expose_hook(mlx_data->mlx_win, &reproject, mlx_data);
 	mlx_key_hook(mlx_data->mlx_win, &key_release, mlx_data);
 }
 

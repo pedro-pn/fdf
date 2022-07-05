@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: ppaulo-d < ppaulo-d@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/07/03 14:12:21 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:25:37 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ int				get_tile_size(int row, int column);
 void			plot(t_win_data mlx_data, t_fdf fdf);
 t_plot			get_plot(int x, int y, t_fdf fdf);
 void			isometric(int *x, int *y, int z);
-void			reproject(t_win_data *mlx_data);
+int				reproject(void *mlx_data);
 // Projection utils
 void			zoom(int key, t_win_data *mlx_data);
 void			move(int key, t_win_data *mlx_data);
