@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 21:50:22 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/07/03 13:35:10 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2022/07/08 18:45:08 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ t_plot	get_plot(int x, int y, t_fdf fdf)
 	p_set.x = x * fdf.tile_size;
 	p_set.y = y * fdf.tile_size;
 	p_set.z = fdf.matrix[y][x] * fdf.tile_size * fdf.z_factor;
-	p_set.x -= (fdf.num_columns * fdf.tile_size) / 2;
-	p_set.y -= (fdf.num_rows * fdf.tile_size) / 2;
+	p_set.x -= ((fdf.num_columns - 1) * fdf.tile_size) / 2;
+	p_set.y -= ((fdf.num_rows - 1) * fdf.tile_size) / 2;
 	rotate_x(&p_set, fdf);
 	rotate_y(&p_set, fdf);
 	rotate_z(&p_set, fdf);
