@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:06:59 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/07/05 15:56:53 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2023/01/20 16:28:42 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ typedef struct s_bresendata
 	int	yk;
 	int	dx;
 	int	dy;
+	int	increment_x;
+	int	increment_y;
 }			t_bresendata;
 
 typedef struct s_plot
@@ -97,10 +99,6 @@ typedef struct s_win_data
 t_bresendata	get_bresendata(t_plot p1, t_plot pk);
 t_bresendata	fix_bresen(int x1, int y1, int xk, int yk);
 void			bresen_alg(t_img *img, t_bresendata cord);
-void			draw_line_1(t_img *img, t_bresendata cord);
-void			draw_line_2(t_img *img, t_bresendata cord);
-void			draw_line_3(t_img *img, t_bresendata cord);
-void			draw_line_4(t_img *img, t_bresendata cord);
 // Read file and build matrix
 int				count_lines(char *file_name);
 int				get_columns_matrix(char **map);
@@ -143,9 +141,8 @@ void			paint_image(t_img *img);
 void			get_matrix_color(t_fdf *fdf, char **row_splt, int row);
 void			get_row_color(t_fdf fdf, int x, int y, t_color *color);
 void			get_column_color(t_fdf fdf, int x, int y, t_color *color);
-void			get_distance(t_bresendata cord, t_color *color);
 int				get_color(t_color color, t_bresendata cord);
-void			invert_color(t_color *color);
+void			set_color_params(t_color *color, t_bresendata cord);
 // Menu
 void			create_menu(t_win_data *mlx_data);
 void			paint_menu(t_img *menu);

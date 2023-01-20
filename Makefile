@@ -1,4 +1,4 @@
-SOURCES = main.c bresenham_1.c bresenham_2.c image.c read_file.c \
+SOURCES = main.c bresenham_1.c image.c read_file.c \
 			events.c clean.c plot.c error.c start.c color.c utils.c color_2.c \
 			menu.c rotation.c mouse.c
 NAME = fdf

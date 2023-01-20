@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 12:16:41 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/07/01 12:07:12 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2023/01/20 16:28:15 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static double	get_percentage(t_color color, int current)
 {
 	double	position;
 
-	position = current - color.start_point;
+	position = abs(current - color.start_point);
 	if (color.distance == 0)
 		return (1);
 	return (position / color.distance);
@@ -44,17 +44,8 @@ int	get_color(t_color color, t_bresendata cord)
 	return ((red << 16) | (green << 8) | blue);
 }
 
-void	get_distance(t_bresendata cord, t_color *color)
+void	set_color_params(t_color *color, t_bresendata cord)
 {
-	color->distance = mod(cord.dx);
+	color->distance = cord.dx;
 	color->start_point = cord.x1;
-}
-
-void	invert_color(t_color *color)
-{
-	int	temp;
-
-	temp = color->color;
-	color->color = color->color_end;
-	color->color_end = temp;
 }
