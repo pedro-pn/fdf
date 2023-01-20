@@ -6,7 +6,7 @@
 /*   By: ppaulo-d <ppaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 03:00:00 by ppaulo-d          #+#    #+#             */
-/*   Updated: 2022/06/30 13:20:32 by ppaulo-d         ###   ########.fr       */
+/*   Updated: 2023/01/20 14:55:50 by ppaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,43 @@ t_bresendata	fix_bresen(int x1, int y1, int xk, int yk)
 
 void	bresen_alg(t_img *img, t_bresendata cord)
 {
-	if (mod(cord.dx) > mod(cord.dy))
-	{
-		if ((cord.dx >= 0 && cord.dy <= 0) || (cord.dx <= 0 && cord.dy >= 0))
-			draw_line_3(img, cord);
-		else
-			draw_line_1(img, cord);
-	}
+	int sx;
+	int	sy;
+	int	error;
+	int	e2;
+
+	cord.dx = abs(cord.xk - cord.x1);
+	cord.dy = -abs(cord.yk - cord.y1);
+	if (cord.x1 < cord.xk)
+		sx = 1;
 	else
+		sx = -1;
+	if (cord.y1 < cord.yk)
+		sy = 1;
+	else
+		sy = -1;
+	error = cord.dx + cord.dy;
+	img->color.distance = cord.dx;
+	img->color.start_point = cord.x1;
+	while (TRUE)
 	{
-		if ((cord.dx >= 0 && cord.dy <= 0) || (cord.dx <= 0 && cord.dy >= 0))
-			draw_line_4(img, cord);
-		else
-			draw_line_2(img, cord);
+		my_mlx_pixel_put(img, cord.x1, cord.y1, get_color((*img).color, cord));
+		if (cord.x1 == cord.xk && cord.y1 == cord.yk)
+			break ;
+		e2 = 2 * error;
+		if (e2 >= cord.dy)
+		{
+			if (cord.x1 == cord.xk)
+				break;
+			error = error + cord.dy;
+			cord.x1 = cord.x1 + sx;
+		}
+		if (e2 <= cord.dx)
+		{
+			if (cord.y1 == cord.yk)
+				break;
+			error = error + cord.dx;
+			cord.y1 = cord.y1 + sy;
+		}
 	}
 }
