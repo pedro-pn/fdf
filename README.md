@@ -1,11 +1,11 @@
 
-# FdF
+<h1 align="center"> FDF </h1>
 
-_My first graphic project at 42 school!_
+_<h6 align="center">My first graphic project at 42 school!</h6>_
 
-
-
-![42mod.fdf](./examples/42mod.png)
+<p align="center">
+<a href="./examples/42mod.png">
+<img src=./examples/42mod.png /></p></a></p>
 
 ## Description
 
