@@ -1,5 +1,5 @@
 
-<h1 align="center"> FDF </h1>
+<h1 align="center">FDF</h1>
 
 _<h6 align="center">My first graphic project at 42 school!</h6>_
 
